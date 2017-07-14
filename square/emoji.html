@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		var inputPage = plus.webview.getWebviewById('square/addArticleNav.html');
+			mui.back = function() {
+				mui.fire(inputPage,'closeEmojiEvent');
+			};
+		});
+    </script>
+</head>
+<body>
+	<div style="position:relative;height:200px;background-color:orange;" class="emoji-box">
+		<img style="width:100%;" src="../images/emojiDemo.jpg"/>
+	</div>
+</body>
+</html>

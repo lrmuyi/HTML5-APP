@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/identify.style.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	/*mui.plusReady(function(){
+      		var oPA = document.getElementById('phoneAbroad');
+      		oPA.ontouchend = function(){
+      			openPage('phoneAbroad.html','phoneAbroad','0px','0px');
+      		}
+      	});*/
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav register-nav">
+		<h1 class="mui-title register-nav-text">找回密码</h1>
+		<button class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left register-nav-text register-nav-btn">
+		<span class="mui-icon mui-icon-left-nav"></span>
+			返回
+		</button>
+	</header>
+	<div class="mui-content">
+		<div class="mui-table-view-cell find-navi">
+			<label class="find-step-text">确认账号</label>><label class="find-step-text">安全验证</label>><label class="find-step-text find-cur-step">重置密码</label>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="public-empty-row"></div>
+		<div class="register-list-box">
+			<div class="mui-input-row public-position-relative">
+				<label>密码</label>
+				<input type="text" class="register-input register-password" placeholder="您账号的登陆密码">
+			</div>
+			<div class="mui-input-row public-position-relative">
+				<label>确认密码</label>
+				<input type="text" class="mui-input-clear register-input register-password" placeholder="请再次输入密码">
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+
+		<div class="register-button-box">
+			<button type="button" class="mui-input-clear mui-btn-block register-button register-button-available">完 成</button>
+		</div>
+	</div>
+</body>
+</html>

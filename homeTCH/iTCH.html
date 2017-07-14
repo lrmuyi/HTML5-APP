@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/sub.style.css" />
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({
+      		gestureConfig:{
+      			swipe:true,
+      			drag:true
+      		}
+      	});
+      	mui.plusReady(function(){
+      		var imgBtn = document.getElementById('allImage');
+      		var iLocation = document.getElementById('iLocation');
+      		var iAuth = document.getElementById('iAuth');
+      		var iService = document.getElementById('iService');
+      		var reviewBtn = document.getElementById('allReview');
+      		var expBtn = document.getElementById('allEXP');
+      		var iPD = document.getElementById('iPsnDetail');
+ 			var iBody = document.getElementById('bodyWrapper');
+ 			var iAppend = document.getElementById('append-nav');
+ 			var iAppendBtn = document.getElementById('append-btn');
+ 			var iAppendText = document.getElementById('append-text');
+ 			var orderBtnG1 = document.getElementById('orderBtnG1');
+ 			var orderBtnG2 = document.getElementById('orderBtnG2');
+ 			var orderBtnG3 = document.getElementById('orderBtnG3');
+ 			var confirmBtn = document.getElementById('confirmBtn');
+ 			var k = 0 ;
+ 			iAuth.addEventListener('tap',function(){
+ 				openPage('iAuth.html');
+ 			});
+ 			iService.addEventListener('tap',function(){
+ 				openPage('iService.html');
+ 			});
+      		imgBtn.addEventListener('tap',function(){
+      			openPage('iAlbum.html');
+      		});
+      		iLocation.addEventListener('tap',function(){
+      			openPage('iLocation.html');
+      		});
+      		reviewBtn.addEventListener('tap',function(){
+      			openPage('iReview.html');
+      		});
+      		expBtn.addEventListener('tap',function(){
+      			openPage('iEXP.html');
+      		});
+      		iPD.addEventListener('tap',function(){
+      			openPage('psnDetail.html');
+      		});
+      		confirmBtn.addEventListener('tap',function(){
+      			openPage('_www/public/orderNav.html');
+      		});
+      		
+      		uniqueBtn(orderBtnG1,1,1);
+      		uniqueBtn(orderBtnG2,2,0);
+      		uniqueBtn(orderBtnG3,3,0);
+      		
+      		iBody.addEventListener('dragstart',function(ev){
+      			if(ev.detail.offsetDirection == 'down'){
+      				if(k===0){
+      					doMove(iAppend,'height',25,50,5,5,function(){
+      						iAppendBtn.style.display = 'block';
+      						iAppendText.style.display = 'inline';
+      						doOpac(iAppendBtn,0,1,.1,1,function(){
+      							k=1;
+      						});
+      					});
+      				}
+      			}
+      			if(ev.detail.offsetDirection == 'up'){
+      				if(k===1){
+      					doMove(iAppend,'height',25,50,5,5,function(){
+      						k=0;
+      					});
+      				}
+      				iAppendBtn.style.display = 'none';
+      				iAppendText.style.display = 'none';
+      				iAppendBtn.style.opacity = '0';
+      			}
+      		});
+      		
+      		var iTa = document.getElementById('Ta');
+      		var aStar = iTa.getElementsByTagName('span')[0];
+      		var ifollow = 0;
+      		
+      		follow(aStar,ifollow);
+      		iTa.addEventListener('tap',function(){
+      			if(ifollow){
+      				ifollow = 0;
+      				mui.toast('已取消关注');
+      			}else{
+      				ifollow = 1;
+      				mui.toast('已关注');
+      			}
+      			follow(aStar,ifollow);
+      		});
+      		
+      		mui('body').on('shown', '.mui-popover', function(e) {
+				//console.log('shown', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('hidden', '.mui-popover', function(e) {
+				//console.log('hidden', e.detail.id);//detail为当前popover元素
+			});
+			mui('body').on('tap', '.mui-popover-action li>a', function() {
+				var a = this,
+					parent;
+				//根据点击按钮，反推当前是哪个actionsheet
+				for (parent = a.parentNode; parent != document.body; parent = parent.parentNode) {
+					if (parent.classList.contains('mui-popover-action')) {
+						break;
+					}
+				}
+				//关闭actionsheet
+				mui('#' + parent.id).popover('toggle');
+			})
+      	});
+      	function follow(obj,i){
+      		if(i){
+      			obj.style.color = 'red';
+      		}else{
+      			obj.style.color = '#E8E8E8';
+      		}
+      	}
+      	
+      	var selectGroup1 = -1 , selectGroup2 = -1 , goDutch = 0;
+      	function uniqueBtn(obj,group,onOff){
+ 			var popTitle = document.getElementById('pop-title');
+      		var aBtn = obj.getElementsByTagName('span');
+      		var previous = 0;
+      		for(var i=0;i<aBtn.length;i++){
+      			aBtn[i].index = i;
+      			aBtn[i].addEventListener('touchstart',function(){
+      				if(group === 1){
+  						if(this.style.color == "orange"){
+  							this.style.color = "#333";
+  							this.style.borderColor = "#CCC";
+  							goDutch = 0;
+  						}else{
+  							this.style.color = "orange";
+  							this.style.borderColor = "orange";
+  							goDutch = 1;
+  						}
+      				}else{
+	      				aBtn[previous].style.color = "#333";
+	      				aBtn[previous].style.borderColor = "#CCC";
+	      				this.style.color = "orange";
+	      				this.style.borderColor = "orange";
+	      				if(group === 2){
+	      					selectGroup1 = this.index;
+	      				}else{
+	      					selectGroup2 = this.index;
+	      				}
+      				}
+      				previous = this.index;
+      				if(goDutch === 1){
+      					
+      				}else{
+      					if(selectGroup1!=-1 && selectGroup2 != -1){
+      						popTitle.innerHTML = '123';
+      					}
+      				}
+      			});
+      		}
+      	}
+    </script>
+    <style type="text/css">
+		.mui-preview-image.mui-fullscreen {
+			position: fixed;
+			z-index: 20;
+			background-color: #000;
+		}
+		.mui-preview-header,
+		.mui-preview-footer {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			z-index: 10;
+		}
+		.mui-preview-header {
+			height: 44px;
+			top: 0;
+		}
+		.mui-preview-footer {
+			height: 50px;
+			bottom: 0px;
+		}
+		.mui-preview-header .mui-preview-indicator {
+			display: block;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+			margin: 15px auto 4;
+			width: 70px;
+			background-color: rgba(0, 0, 0, 0.4);
+			border-radius: 12px;
+			font-size: 16px;
+		}
+		.mui-preview-image {
+			display: none;
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+		.mui-preview-image.mui-preview-in {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+		.mui-preview-image.mui-preview-out {
+			background: none;
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+		}
+		.mui-preview-image.mui-preview-out .mui-preview-header,
+		.mui-preview-image.mui-preview-out .mui-preview-footer {
+			display: none;
+		}
+		.mui-zoom-scroller {
+			position: absolute;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			-webkit-backface-visibility: hidden;
+		}
+		.mui-zoom {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.mui-slider .mui-slider-group .mui-slider-item img {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+			width: 100%;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+			display: inline-table;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.mui-preview-loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.mui-preview-loading.mui-active {
+			display: block;
+		}
+		.mui-preview-loading .mui-spinner-white {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -25px;
+			height: 50px;
+			width: 50px;
+		}
+		.mui-preview-image img.mui-transitioning {
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+		}
+		.mui-pull-top-pocket{
+            top: 84px !important;
+        }
+        .mui-popover .mui-table-view{
+        	max-height:500px;
+        }
+    	.index-search span{
+    		margin:0 5px;
+    		color:#5EAAF6 !important; 
+    		font-size: 0.9em;
+    		text-align: left !important;
+    	}
+    	.index-search span[class="mui-icon mui-icon-search"]{
+    		color:white !important;
+    	}
+    	.mui-backdrop-action.mui-backdrop {
+			background-color: rgba(0,0,0,.3) !important;
+		}
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		p img {
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav common-header">
+		<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+		<h1 class="mui-title header-title">金城家教</h1>
+		<span class="mui-icon iconfont icon-fenxiang1 mui-pull-right list-nav-icon"></span>
+	</header>
+	<div id="bodyWrapper" class="mui-content public-content-wrapper">
+		<div class="profile-cover-header">
+			<!--左上角图标文字
+            	<span class="profile-cover-topLeft"><label class="iconfont icon-guanzhu1"></label></span>
+            -->
+	  		<span class="profile-cover-topRight"><label><img src="../images/QRIcon.png" data-preview-src="../images/QRC.png" data-preview-group="9" /></label></span>
+	    </div>
+	    <div class="profile-cover">
+	    	<div class="profile-avatar">
+	    		<div class="profile-avatar-box">
+	    			<img src="../images/avatar_demo.jpg" data-preview-src="" data-preview-group="0" />
+	    			<div class="profile-gender gender-female">
+						<span class="iconfont icon-nvxing1 list-gender-font"></span>
+					</div>
+	    		</div>
+	    		
+	    		<div class="profile-avatar-name">可欣老师</div>
+	    		<div class="profile-avatar-keyword">小学·初中英语</div>
+	    	</div>
+	    	<div class="profile-act-brief">
+				<div class="profile-data">
+					<div class="profile-data-cell">
+						<span>等级</span>
+						<div>1<span>级</span></div>
+					</div>
+					<div class="profile-data-cell profile-data-cell-border">
+						<span>关注</span>
+						<div>314<span></span></div>
+					</div>
+					<div class="profile-data-cell profile-data-cell-border">
+						<span>已完成</span>
+						<div>32<span>单</span></div>
+					</div>
+				</div>
+			</div>
+	    </div>
+	    <div class="public-empty-row"></div>
+		<div class="mui-table-view">
+			<div id="iAuth" class="mui-table-view-cell">
+				<span class="profile-cell-title">认证:</span>
+				<span class="profile-auth list-auth-red">金城</span><span class="profile-auth list-auth-blue">大学生</span><span class="profile-auth list-auth-orange">实名</span><span class="profile-auth list-auth-green">云家教</span><span class="profile-auth list-auth-purple">聚</span>
+				<span class="mui-icon mui-icon-forward mui-pull-right"></span>
+			</div>
+			<div id="iService" class="mui-table-view-cell">
+				<span class="profile-cell-title">服务:</span>
+				<span class="profile-cell-content">免费试听、可小班授课、可拼单</span>
+				<span class="mui-icon mui-icon-forward mui-pull-right"></span>
+			</div>
+			<div id="iLocation" class="mui-table-view-cell">
+				<span class="profile-cell-title">地址:</span>
+				<span class="profile-cell-content">甘肃省兰州市七里河区</span>
+				<span class="mui-icon mui-icon-forward mui-pull-right"></span>
+			</div>
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-title">简介:</span>
+				<span class="profile-cell-content profile-cell-brief">英语教学有独到见解，上课思路清晰，针对学生情况不同教学形式，经验充分可以驾驭任何成绩段学生</span>
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="mui-table-view">
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-title">教师风采</span><span> (5)</span>
+			</div>
+			<div class="mui-table-view-cell">
+				<div class="profile-cell-mien-box"><span class="profile-cell-mien"><img src="../images/mien1.jpg" data-preview-src="" data-preview-group="1"/></span></div>
+				<div class="profile-cell-mien-box"><span class="profile-cell-mien"><img src="../images/mien2.jpg" style="margin-left:-30px" data-preview-src="" data-preview-group="1"/></span></div>
+				<div class="profile-cell-mien-box"><span class="profile-cell-mien"><img src="../images/mien3.jpg" data-preview-src="" data-preview-group="1"/></span></div>
+				<div class="profile-cell-mien-box profile-cell-mien-hidden"><img src="../images/mien4.jpg" data-preview-src="" data-preview-group="1"/></div>
+				<div class="profile-cell-mien-box profile-cell-mien-hidden"><img src="../images/mien5.jpg" data-preview-src="" data-preview-group="1"/></div>
+			</div>
+			<div id="allImage" class="mui-table-view-cell">
+				<span class="profile-cell-btn">全部图片<span class="mui-icon mui-icon-arrowright"></span></span>
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="mui-table-view">
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-title">教师评价</span><span> (101)</span>
+				<span class="mui-pull-right profile-cell-fav-rate">100%好评</span>
+			</div>
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-eva-attr"><label>初中三年级英语</label><label>qaqi酱</label><label>2016年03月23日</label></span>
+				<span class="profile-cell-content ">英语教学有独到见解，上课思路清晰，针对学生情况不同教学形式，经验充分可以驾驭任何成绩段学生</span>
+			</div>
+			<div id="allReview" class="mui-table-view-cell">
+				<span class="profile-cell-btn">全部评价<span class="mui-icon mui-icon-arrowright"></span></span>
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="mui-table-view">
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-title">过往心得</span><span> (2)</span>
+			</div>
+			<div class="mui-table-view-cell">
+				<!--标题18为字一行-->
+				<span class="profile-cell-expTitle">家教不是讲课，主要是启发、引导和点拨</span>
+				<span class="profile-cell-content ">让后进孩子更优秀<br/>学为人师，行为世范！对于严重偏科的学生，要查看学生平时测试卷子，对学生的学习问题进行一番诊断，对学生情况有一个整体性的把握，看看到底是哪些方面存在问题，哪些属于薄弱环节，然后在这些方面有针对性的加以辅导。</span>
+			</div>
+			<div class="mui-table-view-cell">
+				<!--标题18为字一行-->
+				<span class="profile-cell-expTitle">师德第一，宽严结合</span>
+				<span class="profile-cell-content ">55中，胡同学，孩子对学校英语老师有意见，从而对英语学习不感兴趣，经过初二暑假至今的辅导，学习成绩已从46分提高到107分，而且学校的英语老师经常表扬他，他对老师有了好感。</span>
+			</div>
+			<div id="allEXP" class="mui-table-view-cell">
+				<span class="profile-cell-btn">全部心得<span class="mui-icon mui-icon-arrowright"></span></span>
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="mui-table-view">
+			<div class="mui-table-view-cell">
+				<span class="profile-cell-title">教师ID</span>
+				<span class="mui-pull-right"><label class="profile-extra-btn"><img src="../images/QRIconB.png" data-preview-src="../images/QRC.png" data-preview-group="99" /></label></span>
+				<span class="mui-pull-right profile-extra-text">155545</span>
+			</div>
+			<div id="iPsnDetail" class="mui-table-view-cell">
+				<span class="profile-cell-title">详细资料</span>
+				<span class="mui-icon mui-icon-forward mui-pull-right"></span>
+			</div>
+			<div class="mui-table-view-cell">
+				<div class="mui-btn-row profile-concern-btn">+关注 <span>314</span></div>
+			</div>
+		</div>
+		<div class="public-empty-row-50"></div>
+	</div>
+	<nav id="append-nav" class="mui-bar mui-bar-tab profile-navi-append-bar">
+		<span class="profile-append-bar-title">这位老师支持拼单课程，上划试试？</span>
+		<span id="append-btn" class="mui-pull-right mui-btn profile-append-nav-btn"><label class="iconfont icon-quan"></label>拼单</span>
+		<span id="append-text" class="profile-append-bar-price">所有拼单课程价格低至8折，超省钱→</span>
+	</nav>
+	<nav id="main-nav" class="mui-bar mui-bar-tab profile-navi-bar">
+		<div id="Ta" class="mui-pull-left profile-nav-ta"><span class="iconfont icon-guanzhu"></span><span>关注</span></div>
+		<div class="profile-nav-price"><label>￥</label><span>220-300</span><label>/小时</label></div>
+
+		<div class="mui-pull-right profile-nav-btn-box"><span class="mui-btn profile-nav-btn profile-nav-btn-orange"><label class="iconfont icon-zixun"></label>咨询</span><a href="#forward"><span class="mui-btn profile-nav-btn"><label class="iconfont icon-yueta"></label>约Ta</span></a></div>
+	</nav>
+	<div id="forward" class="mui-popover mui-popover-action mui-popover-bottom">
+		<ul class="mui-table-view profile-pop-margin">
+			<li class="mui-table-view-cell profile-pop-box">
+				<div class="profile-pop-header">
+					<span id="pop-title">请选择科目年级和授课方式</span>
+					<a class="mui-icon mui-icon-closeempty mui-pull-right" href="#forward"></a>
+				</div>
+				<div class="profile-pop-btn-title">
+					试听课
+				</div>
+				<div id="orderBtnG1" class="profile-pop-btn">
+					<span class="mui-btn">免费试听</span>
+				</div>
+				<div class="profile-pop-btn-title">
+					科目年级
+				</div>
+				<div id="orderBtnG2" class="profile-pop-btn">
+					<span class="mui-btn">数学 初中一年级</span>
+					<span class="mui-btn">数学 高中一年级</span>
+					<span class="mui-btn">数学 初中二年级</span>
+					<span class="mui-btn">数学 高中二年级</span>
+					<span class="mui-btn">数学 初中三年级</span>
+					<span class="mui-btn">数学 高中三年级</span>
+				</div>
+				<div class="profile-pop-btn-title">
+					授课方式
+				</div>
+				<div id="orderBtnG3" class="profile-pop-btn">
+					<span class="mui-btn">老师上门</span>
+					<span class="mui-btn">学生上门</span>
+					<span class="mui-btn">金城书房</span>
+				</div>
+				<div class="profile-pop-btn-row">
+					<span id="confirmBtn" class="mui-btn profile-pop-btn-red">确定</span>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+	<script src="../js/mui.zoom.js"></script>
+	<script src="../js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+</html>

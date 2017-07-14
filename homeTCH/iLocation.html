@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta name="HandheldFriendly" content="true"/>
+		<meta name="MobileOptimized" content="320"/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/sub.style.css"/>
+		<script type="text/javascript" src="../js/H5plus.js"></script>
+		<script type="text/javascript">
+var ws=null,wo=null;
+var em=null,map=null,pcenter=null;
+// H5 plus事件处理
+function plusReady(){
+	if(!em||ws){return};
+	// 获取窗口对象
+	ws=plus.webview.currentWebview();
+	wo=ws.opener();
+	//高德地图坐标为(116.3974357341,39.9085574220), 百度地图坐标为(116.3975,39.9074)
+	pcenter = new plus.maps.Point(103.746119,36.062204);
+	setTimeout(function(){
+		map=new plus.maps.Map("map");
+		map.centerAndZoom(pcenter,12);
+		createMarker();
+		// 创建子窗口
+		createSubview();
+	},300);
+	// 显示页面并关闭等待框
+    ws.show("pop-in");
+}
+if(window.plus){
+	plusReady();
+}else{
+	document.addEventListener("plusready",plusReady,false);
+}
+// DOMContentloaded事件处理
+document.addEventListener("DOMContentLoaded",function(){
+	em=document.getElementById("map");
+	window.plus&&plusReady();
+},false);
+function userLocation(){
+	map.showUserLocation( true );
+	map.getUserLocation(function(state,pos){
+		if(0==state){
+			map.setCenter(pos);
+		}
+	});
+}
+function createMarker(){
+	var marker=new plus.maps.Marker(new plus.maps.Point(103.746119,36.062204));
+	marker.setIcon("../images/username.jpg");
+	marker.setLabel("苗苗老师");
+	var bubble = new plus.maps.Bubble("成为最好的金城家教");
+	marker.setBubble(bubble);
+	map.addOverlay(marker);
+}
+function createSubview(){
+	// 创建加载内容窗口
+	var topoffset='44px';
+	if(plus.navigator.isImmersedStatusbar()){// 兼容immersed状态栏模式
+		topoffset=(Math.round(plus.navigator.getStatusbarHeight())+44)+'px';
+	}
+	var wsub=plus.webview.create('maps_map_sub.html','sub',{top:topoffset,height:'60px',position:'absolute',scrollIndicator:'none',background:'transparent'});
+	ws.append(wsub);
+}
+function resetMap(){
+	//map.centerAndZoom(pcenter,12);
+	map.reset();
+}
+		</script>
+		<link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8"/>
+		<style type="text/css">
+#map {
+	width: 100%;
+	position: fixed;
+	top: 45px;
+	bottom: 0px;
+	line-height: 200px;
+	text-align: center;
+	background: #FFFFFF;
+}
+.ipos {
+	background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAsCAYAAAAn4+taAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNC8wMS8xNExYUU4AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAACTklEQVRoge2YO2gUURSGv7PjEkULO4UoFooIFgtzprAPWMiWKewSTadgYWEhBjHCloGUQtYHaGEjGAQtUmgnZO9YpsqC2NgYIwjRInMscoPrYkzhGTIs8zdnzoP578ewM/eumBmjoMZ+L8BLNUjVVINUTTVI1VSDVE0jA3KgjJuGEE6LyI2iKC6JyBkzWxORF8ADVV0rw1O891ohhCngPnDyL+1PZjabZdkTV1OcQUIIV4CHMf0JvAK+A0eANjAWe1dV9ZGbMY6/kTzPzwHzMV0VkZaqTgLTqjopIi1gNfbnQwhnvbzBEcTMbgFHgXURaRdFsRFCWAa+hhCWi6LYEJE2sB7nbnp5g+9b62KMIU3Tvoh0gQm2Fz0hIt00TftAADCztqO3K8h4jJsAZnZ+sDmQ/wAQkXEc5QnyJcZjACLybLApIk/j5YmheRd5gryLMev1elOqesfMrpvZczO7pqqzvV5vGmgNzbvIDUREXsbLRES6IYTbzWZzMcuyy0mSPA4h3BWRxR3PgXkff6/vSJ7nx83sPXBqoLwJFEACHByofxSRC2mafnYxx/GJxEW9GSofAg7zJwTAa08I8N80doG9HrHx++vvJlcQVV0xs6V/zZjZkqquePpCOdv4OWBrl96WiNwrwdMfJMuyHFjYpb2gqh+8PaG8g9Uc0B+q9WO9FJUCoqrfgBm2X73EOBPrpai0o66qvgU6Me3EvDSVctTdUZIknaIoxhqNRmfv6f+T+1F3vzQy/6LUIFVTDVI11SBVUw1SNdUgVdPIgPwCtt+2JPQRVicAAAAASUVORK5CYII=);
+	background-size: 50px 44px;
+}	
+	body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=r54f9pjtW2wrqiqErpWrnLbTx2llEAzp"></script>
+	</head>
+	<body>
+		<header id="header" class="mui-bar mui-bar-nav common-header">
+			<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+			<h1 class="mui-title header-title">所在地</h1>
+			<span class="mui-icon mui-icon-location mui-pull-right common-nav-btn-right" onclick="userLocation();"></span>
+		</header>
+		<div id="allmap"></div>
+	</body>
+	<script type="text/javascript" src="../js/immersed.js" ></script>
+	<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");    // 创建Map实例
+	map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
+	map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
+	map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
+	map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>
+</html>

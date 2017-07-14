@@ -1,0 +1,1002 @@
+{
+	"@platforms": ["android", "iPhone", "iPad"],
+	"id": "H57214455",/*应用的标识，创建应用时自动生成，勿手动修改*/
+	"name": "金城家教",/*应用名称，程序桌面图标名称*/
+	"version": {
+		"name": "0.1.2",/*应用版本名称*/
+		"code": "83"
+	},
+	"description": "",/*应用描述信息*/
+	"icons": {
+		"72": "icon.png"
+	},
+	"launch_path": "navigator.html",/*应用的入口页面，默认为根目录下的index.html；支持网络地址，必须以http://或https://开头*/
+	"developer": {
+		"name": "",/*开发者名称*/
+		"email": "",/*开发者邮箱地址*/
+		"url": "http://www.dcloud.io"
+	},
+	"permissions": {
+		"Accelerometer": {
+            "description": "访问加速度感应器"
+        },
+        "Audio": {
+            "description": "访问麦克风"
+        },
+        "Cache": {
+            "description": "管理应用缓存"
+        },
+        "Camera": {
+            "description": "访问摄像头"
+        },
+        "Console": {
+            "description": "跟踪调试输出日志"
+        },
+        "Contacts": {
+            "description": "访问系统联系人信息"
+        },
+        "Device": {
+            "description": "访问设备信息"
+        },
+        "Downloader": {
+            "description": "文件下载管理"
+        },
+        "Events": {
+            "description": "应用扩展事件"
+        },
+        "File": {
+            "description": "访问本地文件系统"
+        },
+        "Gallery": {
+            "description": "访问系统相册"
+        },
+        "Geolocation": {
+            "description": "访问位置信息"
+        },
+         "Invocation": {
+            "description": "使用Native.js能力"
+        },
+        
+        "Orientation": {
+            "description": "访问方向感应器"
+        },
+        "Proximity": {
+            "description": "访问距离感应器"
+        },
+        "Storage": {
+            "description": "管理应用本地数据"
+        },
+        
+        "Uploader": {
+            "description": "管理文件上传任务"
+        },
+        "Runtime": {
+            "description": "访问运行期环境"
+        },
+        "XMLHttpRequest": {
+            "description": "跨域网络访问"
+        },
+        "Zip": {
+            "description": "文件压缩与解压缩"
+        },
+        "Barcode": {
+            "description": "管理二维码扫描插件"
+        },
+        "Maps": {
+            "description": "管理地图插件"
+        },
+        "Speech": {
+            "description": "管理语音识别插件"
+        },
+        "Webview":{
+        	"description": "窗口管理"
+        },
+        "NativeUI":{
+        	"description": "原生UI控件"
+        },
+        "Navigator":{
+        	"description": "浏览器信息"
+        },
+        "NativeObj":{
+        	"description": "原生对象"
+        }
+	},
+	"plus": {
+		"splashscreen": {
+			"autoclose": false,/*是否自动关闭程序启动界面，true表示应用加载应用入口页面后自动关闭；false则需调plus.navigator.closeSplashscreen()关闭*/
+			"waiting": true,"delay":"0"
+		},
+		"runmode": "liberate",/*应用的首次启动运行模式，可取liberate或normal，liberate模式在第一次启动时将解压应用资源（Android平台File API才可正常访问_www目录）*/
+		"signature": "Sk9JTiBVUyBtYWlsdG86aHIyMDEzQGRjbG91ZC5pbw==",/*可选，保留给应用签名，暂不使用*/
+		"distribute": {
+			"apple": {
+				"appid": "",/*iOS应用标识，苹果开发网站申请的appid，如io.dcloud.HelloH5*/
+				"mobileprovision": "",/*iOS应用打包配置文件*/
+				"password": "",/*iOS应用打包个人证书导入密码*/
+				"p12": "",/*iOS应用打包个人证书，打包配置文件关联的个人证书*/
+				"devices": "universal",/*iOS应用支持的设备类型，可取值iphone/ipad/universal*/
+				"frameworks": []
+			},
+			"google": {
+				"packagename": "",/*Android应用包名，如io.dcloud.HelloH5*/
+				"keystore": "",/*Android应用打包使用的密钥库文件*/
+				"password": "",/*Android应用打包使用密钥库中证书的密码*/
+				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
+				"permissions": ["<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>","<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>","<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>","<uses-permission android:name=\"android.permission.VIBRATE\"/>","<uses-permission android:name=\"android.permission.READ_LOGS\"/>","<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>","<uses-feature android:name=\"android.hardware.camera.autofocus\"/>","<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>","<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>","<uses-permission android:name=\"com.android.launcher.permission.UNINSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.CAMERA\"/>","<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>","<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>","<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>","<uses-permission android:name=\"com.android.launcher.permission.INSTALL_SHORTCUT\"/>","<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>","<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>","<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>","<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>","<uses-permission android:name=\"android.permission.CALL_PHONE\"/>","<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>","<uses-feature android:name=\"android.hardware.camera\"/>","<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>","<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"]
+			},
+			"orientation": ["portrait-primary", "portrait-secondary"],/*应用支持的方向，portrait-primary：竖屏正方向；portrait-secondary：竖屏反方向；landscape-primary：横屏正方向；landscape-secondary：横屏反方向*/
+			"icons": {
+				"ios": {
+					"prerendered": true, /*应用图标是否已经高亮处理，在iOS6及以下设备上有效*/
+					"auto": "", /*应用图标，分辨率：512x512，用于自动生成各种尺寸程序图标*/
+					"iphone": {
+						"normal": "unpackage/res/icons/57x57.png",/*iPhone普通屏幕程序图标，分辨率：57x57*/
+						"retina": "unpackage/res/icons/114x114.png",/*iPhone高分屏程序图标，分辨率：114x114*/
+						"retina7": "unpackage/res/icons/120x120.png",/*iPhone iOS7高分屏程序图标，分辨率：120x120*/
+						"spotlight-normal": "unpackage/res/icons/29x29.png", /*iPhone Spotlight搜索程序图标，分辨率：29x29*/
+						"spotlight-retina": "unpackage/res/icons/58x58.png", /*iPhone高分屏Spotlight搜索程序图标，分辨率：58x58*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPhone iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png", /*iPhone设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png","retina8":"unpackage/res/icons/180x180.png","settings-retina8":"unpackage/res/icons/87x87.png"
+					},
+					"ipad": {
+						"normal": "unpackage/res/icons/72x72.png", /*iPad普通屏幕程序图标，分辨率：72x72*/
+						"retina": "unpackage/res/icons/144x144.png", /*iPad高分屏程序图标，分辨率：144x144*/
+						"normal7": "unpackage/res/icons/76x76.png", /*iPad iOS7程序图标，分辨率：76x76*/
+						"retina7": "unpackage/res/icons/152x152.png", /*iPad iOS7高分屏程序图标，分辨率：152x152*/
+						"spotlight-normal": "unpackage/res/icons/50x50.png", /*iPad Spotlight搜索程序图标，分辨率：50x50*/
+						"spotlight-retina": "unpackage/res/icons/100x100.png", /*iPad高分屏Spotlight搜索程序图标，分辨率：100x100*/
+						"spotlight-normal7": "unpackage/res/icons/40x40.png",/*iPad iOS7 Spotlight搜索程序图标，分辨率：40x40*/
+						"spotlight-retina7": "unpackage/res/icons/80x80.png",/*iPad iOS7高分屏Spotlight搜索程序图标，分辨率：80x80*/
+						"settings-normal": "unpackage/res/icons/29x29.png",/*iPad设置页面程序图标，分辨率：29x29*/
+						"settings-retina": "unpackage/res/icons/58x58.png"
+					}
+				},
+				"android": {
+					"mdpi": "unpackage/res/icons/48x48.png", /*普通屏程序图标，分辨率：48x48*/
+					"ldpi": "unpackage/res/icons/48x48.png", /*大屏程序图标，分辨率：48x48*/
+					"hdpi": "unpackage/res/icons/72x72.png", /*高分屏程序图标，分辨率：72x72*/
+					"xhdpi": "unpackage/res/icons/96x96.png",/*720P高分屏程序图标，分辨率：96x96*/
+					"xxhdpi": "unpackage/res/icons/144x144.png"
+				}
+			},
+			"splashscreen": {
+				"ios": {
+					"iphone": {"default":"C:/Users/firecracker/Desktop/ios/320x480.png","retina55":"C:/Users/firecracker/Desktop/ios/1242x2208.png","retina47":"C:/Users/firecracker/Desktop/ios/750x1334.png","retina40":"C:/Users/firecracker/Desktop/ios/640x1136.png","retina35":"C:/Users/firecracker/Desktop/ios/640x960.png"
+						 /*iPhone3启动图片选，分辨率：320x480*/
+						
+					},
+					"ipad": {
+						"portrait": "C:/Users/firecracker/Desktop/ios/768x1004.png", /*iPad竖屏启动图片，分辨率：768x1004*/
+						/*iPad高分屏竖屏图片，分辨率：1536x2008*/
+						"landscape": "", /*iPad横屏启动图片，分辨率：1024x748*/
+						"landscape-retina": "", /*iPad高分屏横屏启动图片，分辨率：2048x1496*/
+						"portrait7": "", /*iPad iOS7竖屏启动图片，分辨率：768x1024*/
+						"portrait-retina7": "",/*iPad iOS7高分屏竖屏图片，分辨率：1536x2048*/
+						"landscape7": "", /*iPad iOS7横屏启动图片，分辨率：1024x768*/
+						"landscape-retina7": ""
+					}
+				},
+				"android": {"hdpi":"C:/Users/firecracker/Desktop/Android/欢迎页480x762.png","ldpi":"C:/Users/firecracker/Desktop/Android/欢迎页320x442.png","mdpi":"C:/Users/firecracker/Desktop/Android/欢迎页240x282.png","xhdpi":"C:/Users/firecracker/Desktop/Android/欢迎页720x1242.png","xxhdpi":"C:/Users/firecracker/Desktop/Android/欢迎页1080x1882.png"
+					 /*普通屏启动图片，分辨率：240x282*/
+					 /*大屏启动图片，分辨率：320x442*/
+					 /*高分屏启动图片，分辨率：480x762*/
+					 /*720P高分屏启动图片，分辨率：720x1242*/
+					
+				}
+			}
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"css/main.style.css",
+					"images/cbd.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/shuijiao.jpg",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"js/common.js",
+					"fonts/iconfont.woff",
+					"js/castapp.js"
+				],
+				"refer": [
+					"subpages/menuList.html",
+					"homeTCH/menuList.html",
+					"homeTCH/goDutchListNav.html",
+					"public/shake.html"
+				],
+				"priority": 0
+			},
+			"navigator.html": {
+				"resources": [
+					"index.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/main.style.css",
+					"js/common.js",
+					"my-nav.html"
+				],
+				"refer": [
+					"square.html",
+					"my.html",
+					"document.html",
+					"message.html",
+					"schedule.html",
+					"msgLobby.html",
+					"squareNav.html"
+				],
+				"priority": 0
+			},
+			"square.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/mien2.jpg",
+					"images/mien1.jpg",
+					"images/3.jpg",
+					"images/avatar_demo.jpg",
+					"images/4.jpg",
+					"images/cbd.jpg",
+					"images/2.jpg",
+					"images/avatar-BG.jpg",
+					"images/muwu.jpg",
+					"images/yuantiao.jpg",
+					"images/1.jpg",
+					"images/shuijiao.jpg",
+					"fonts/mui.ttf",
+					"css/square.style.css",
+					"js/common.js",
+					"images/square2.jpg",
+					"images/square1.jpg",
+					"images/avatar_demo7.jpg",
+					"images/square3.jpg",
+					"images/mien3.jpg",
+					"images/avatar_demo6.jpg",
+					"images/avatar_demo3.jpg",
+					"images/avatar_demo4.jpg",
+					"images/mien5.jpg",
+					"images/square4.jpg"
+				],
+				"refer": [
+					"square/artListNav.html"
+				],
+				"priority": 0
+			},
+			"my.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/2.jpg",
+					"images/avatar-BG.jpg",
+					"images/1.jpg",
+					"images/avatar_default.jpg",
+					"fonts/iconfont.ttf",
+					"css/main.style.css",
+					"css/iconfont.css",
+					"fonts/iconfont.woff",
+					"images/QRIcon.png",
+					"images/loading.gif",
+					"js/mui.lazyload.js",
+					"js/mui.lazyload.img.js"
+				],
+				"refer": [
+					"register.html",
+					"login.html",
+					"Personal/myWallet.html",
+					"Personal/orderList.html",
+					"public/login.html",
+					"public/register.html"
+				],
+				"priority": 0
+			},
+			"register.html": {
+				"resources": [
+					"css/identify.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"images/username.jpg",
+					"js/common.js",
+					"js/mui.min.js",
+					"images/logo.jpg",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/identify.style.css",
+					"images/password.jpg"
+				],
+				"refer": [
+					"register.html",
+					"findPswStep1.html"
+				],
+				"priority": 0
+			},
+			"subpages/menuList.html": {
+				"resources": [
+					"css/sub.style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/logo.jpg",
+					"js/common.js"
+				],
+				"refer": [
+					"register.html",
+					"subpages/selectListNav.html",
+					"subpages/selectTCHNav.html"
+				],
+				"priority": 0
+			},
+			"subpages/selectListNav.html": {
+				"resources": [
+					"css/sub.style.css",
+					"js/common.js",
+					"subpages/selectTeacher.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"subpages/selectTCH.html": {
+				"resources": [
+					"images/TCHAvatar.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"subpages/selectTCHNav.html": {
+				"resources": [
+					"subpages/selectTCH.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/selectTCHNav.html": {
+				"resources": [
+					"homeTCH/selectTCH.html",
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/selectTCH.html": {
+				"resources": [
+					"images/TCHAvatar.jpg",
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/iconfont.css",
+					"images/avatar_demo4.jpg",
+					"fonts/iconfont.ttf",
+					"images/avatar_demo5.jpg",
+					"images/avatar_demo3.jpg",
+					"images/TCHAvatar6.jpg"
+				],
+				"refer": [
+					"homeTCH/iTCHNav.html",
+					"homeTCH/iTCH.html",
+					"homeTCH/iTCH2.html"
+				],
+				"priority": 0
+			},
+			"homeTCH/menuList.html": {
+				"resources": [
+					"css/sub.style.css",
+					"images/logo.jpg",
+					"fonts/mui.ttf",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"images/zhiye.jpg",
+					"images/zuoye.jpg",
+					"images/suiji.jpg",
+					"images/jinpai.jpg",
+					"images/xuanshang.jpg"
+				],
+				"refer": [
+					"homeTCH/selectTCHNav.html",
+					"public/shake2.html",
+					"public/shake1.html"
+				],
+				"priority": 0
+			},
+			"homeTCH/iTCH.html": {
+				"resources": [
+					"images/cover.jpg",
+					"images/avatar_demo.jpg",
+					"css/sub.style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/mien3.jpg",
+					"images/mien2.jpg",
+					"images/mien1.jpg",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/mien4.jpg",
+					"images/mien5.jpg",
+					"images/QRIcon.png",
+					"images/QRIconB.png",
+					"js/common.js",
+					"css/iconfont.css",
+					"images/QRC.png",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"homeTCH/iAlbum.html",
+					"homeTCH/iReview.html",
+					"homeTCH/iLocation.html",
+					"homeTCH/iAuth.html",
+					"homeTCH/iService.html",
+					"homeTCH/iEXP.html",
+					"public/orderNav.html"
+				],
+				"priority": 0
+			},
+			"homeTCH/iTCHNav.html": {
+				"resources": [
+					"homeTCH/iTCH.html",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/app.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/iAlbum.html": {
+				"resources": [
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/mien3.jpg",
+					"css/sub.style.css",
+					"images/mien4.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"images/mien5.jpg",
+					"css/mui.min.css",
+					"images/mien2.jpg",
+					"images/mien1.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/iReview.html": {
+				"resources": [
+					"images/avatar_demo3.jpg",
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js",
+					"images/avatar_demo6.jpg",
+					"images/avatar_demo5.jpg",
+					"images/avatar_demo8.jpg",
+					"images/avatar_demo4.jpg",
+					"images/avatar_demo7.jpg",
+					"images/avatar_demo9.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/iLocation.html": {
+				"resources": [
+					"js/H5plus.js",
+					"css/sub.style.css",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/immersed.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/iAuth.html": {
+				"resources": [
+					"images/avatar_demo2.jpg",
+					"css/sub.style.css",
+					"js/mui.min.js",
+					"images/TCHAvatar.jpg",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"my-nav.html": {
+				"resources": [
+					"my.html",
+					"css/main.style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/common.js",
+					"navigator.html"
+				],
+				"refer": [
+					"index.html",
+					"squareNav.html",
+					"msgLobby.html"
+				],
+				"priority": 0
+			},
+			"message.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"schedule.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Personal/myWallet.html": {
+				"resources": [
+					"css/personal.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Personal/orderList.html": {
+				"resources": [
+					"images/mien3.jpg",
+					"js/mui.zoom.js",
+					"css/personal.style.css",
+					"js/mui.previewimage.js",
+					"images/avatar_demo3.jpg",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"images/avatar_demo4.jpg",
+					"images/avatar_demo.jpg"
+				],
+				"refer": [
+					"Personal/orderSheet.html",
+					"Personal/orderSheetNav.html"
+				],
+				"priority": 0
+			},
+			"Personal/orderSheet.html": {
+				"resources": [
+					"js/common.js",
+					"js/mui.min.js",
+					"images/mien3.jpg",
+					"css/personal.style.css",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Personal/orderSheetNav.html": {
+				"resources": [
+					"Personal/orderSheet.html",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/personal.style.css",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"msgLobby.html": {
+				"resources": [
+					"images/logo.jpg",
+					"images/avatar_demo3.jpg",
+					"css/message.sub.css",
+					"css/iconfont.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [
+					"message/iChat.html",
+					"message/iChatNav.html",
+					"public/register.html"
+				],
+				"priority": 0
+			},
+			"message/iChat.html": {
+				"resources": [
+					"js/mui.imageViewer.js",
+					"css/app.css",
+					"css/mui.imageviewer.css",
+					"js/arttmpl.js",
+					"js/mui.min.js",
+					"images/logo.jpg",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"js/common.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"message/iChatNav.html": {
+				"resources": [
+					"message/iChat.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"squareNav.html": {
+				"resources": [
+					"square.html",
+					"css/square.style.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/iconfont.css",
+					"js/common.js",
+					"fonts/iconfont.ttf",
+					"fonts/iconfont.woff"
+				],
+				"refer": [
+					"square/addArticle.html",
+					"square/addArticleNav.html"
+				],
+				"priority": 0
+			},
+			"square/artList.html": {
+				"resources": [
+					"images/alipay.jpg",
+					"images/cbd.jpg",
+					"images/avatar-BG.jpg",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/mien2.jpg",
+					"images/mien1.jpg",
+					"images/avatar_demo.jpg",
+					"css/square.style.css"
+				],
+				"refer": [
+					"square/article.html",
+					"square/articleNav.html"
+				],
+				"priority": 0
+			},
+			"square/artListNav.html": {
+				"resources": [
+					"square/artList.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"css/square.style.css",
+					"js/common.js"
+				],
+				"refer": [
+					"square/addArticle.html"
+				],
+				"priority": 0
+			},
+			"square/article.html": {
+				"resources": [
+					"images/logo.jpg",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/avatar_demo.jpg",
+					"css/square.style.css",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"js/mui.zoom.js",
+					"js/mui.previewimage.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"square/articleNav.html": {
+				"resources": [
+					"square/article.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/square.style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"square/addArticle.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/square.style.css",
+					"fonts/mui.ttf",
+					"js/mui.picker.js",
+					"js/mui.poppicker.js",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"css/mui.poppicker.css",
+					"css/mui.picker.css",
+					"images/mien4.jpg",
+					"images/mien5.jpg",
+					"images/cbd.jpg",
+					"images/mien1.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"square/addArticleNav.html": {
+				"resources": [
+					"square/addArticle.html",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf",
+					"css/square.style.css",
+					"js/H5plus.js"
+				],
+				"refer": [
+					"square/offcanvas-drag-left-plus-menu.html",
+					"square/emoji.html"
+				],
+				"priority": 0
+			},
+			"square/emoji.html": {
+				"resources": [
+					"images/emojiDemo.jpg",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/square.style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"findPswStep1.html": {
+				"resources": [
+					"images/validate.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/goDutchListNav.html": {
+				"resources": [
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"homeTCH/goDutchList.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/goDutchList.html": {
+				"resources": [
+					"images/TCHAvatar.jpg",
+					"css/iconfont.css",
+					"fonts/iconfont.ttf",
+					"css/sub.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/avatar_demo4.jpg"
+				],
+				"refer": [
+					"public/goDutchNav.html"
+				],
+				"priority": 0
+			},
+			"public/shake.html": {
+				"resources": [
+					"images/shake/1.jpg",
+					"images/shakedown.png",
+					"images/shakeup.png",
+					"js/immersed.js",
+					"js/H5plus.js",
+					"images/shake/4.jpg",
+					"css/shake.style.css",
+					"css/mui.min.css",
+					"images/shake/2.jpg",
+					"images/shake/3.jpg",
+					"js/mui.min.js",
+					"js/common.js",
+					"css/public.style.css"
+				],
+				"refer": [
+					"homeTCH/iTCH.html"
+				],
+				"priority": 0
+			},
+			"public/order.html": {
+				"resources": [
+					"css/public.style.css",
+					"images/avatar_demo3.jpg"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"public/orderNav.html": {
+				"resources": [
+					"public/order.html",
+					"css/personal.style.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"public/goDutchNav.html": {
+				"resources": [
+					"css/personal.style.css",
+					"public/goDutch.html"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"public/goDutch.html": {
+				"resources": [
+					"css/public.style.css",
+					"js/jquery-2.1.1.min.js",
+					"images/avatar_demo3.jpg",
+					"js/jquery.classyled.min.js",
+					"js/raphael.js"
+				],
+				"refer": [
+					"homeTCH/iTCH.html"
+				],
+				"priority": 0
+			},
+			"public/register.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/common.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/identify.style.css"
+				],
+				"refer": [
+					"my-nav.html",
+					"public/login.html"
+				],
+				"priority": 0
+			},
+			"public/login.html": {
+				"resources": [
+					"images/username.jpg",
+					"js/common.js",
+					"css/identify.style.css",
+					"images/password.jpg",
+					"js/mui.min.js",
+					"images/logo.jpg",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"images/avatar_default.jpg"
+				],
+				"refer": [
+					"public/register.html",
+					"my-nav.html"
+				],
+				"priority": 0
+			},
+			"public/shake2.html": {
+				"resources": [
+					"css/shake.style.css",
+					"images/shake/1.jpg",
+					"css/public.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"images/shakedown.png",
+					"images/shakeup.png",
+					"js/immersed.js",
+					"js/H5plus.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"public/shake1.html": {
+				"resources": [
+					"css/shake.style.css",
+					"images/shake/1.jpg",
+					"css/public.style.css",
+					"js/common.js",
+					"js/mui.min.js",
+					"images/shakedown.png",
+					"images/shakeup.png",
+					"js/immersed.js",
+					"js/H5plus.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"homeTCH/iTCH2.html": {
+				"resources": [
+					"images/mien3.jpg",
+					"js/mui.zoom.js",
+					"images/cover.jpg",
+					"images/mien4.jpg",
+					"images/QRIcon.png",
+					"images/QRIconB.png",
+					"images/mien5.jpg",
+					"js/mui.previewimage.js",
+					"images/mien2.jpg",
+					"images/mien1.jpg",
+					"fonts/mui.ttf",
+					"images/TCHAvatar6.jpg",
+					"js/common.js",
+					"css/sub.style.css",
+					"js/mui.min.js",
+					"css/iconfont.css",
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
+				],
+				"refer": [
+					"homeTCH/iService.html",
+					"homeTCH/iReview.html",
+					"homeTCH/iLocation.html"
+				],
+				"priority": 0
+			}
+		},
+		"idle": {
+			"resources": [
+				"css/icon.style.css",
+				"fonts/icon.ttf",
+				"js/mui.js",
+				"css/mui.css"
+			]
+		}
+	},"fullscreen":false,
+	"unpackage":[
+	  "css/mui.css",
+	  "js/mui.js"
+	]
+}

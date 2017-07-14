@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/identify.style.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		var oBtn = document.getElementById('nextBtn');
+      		var oReSms = document.getElementById('sms-renew-btn');
+      		var onOff = false;
+      		var duration = 60;
+      		
+      		mui.toast('短信已发送，请注意接收');
+      		oReSms.innerHTML = '等待'+duration+'秒';
+      			onOff = false;
+      			oReSms.style.color = 'gray';
+      			var timer = setInterval(function(){
+      				oReSms.innerHTML = '等待'+(--duration)+'秒';
+      			},1000)
+      			setTimeout(function(){
+      				clearInterval(timer);
+      				oReSms.innerHTML = '重新获取';
+      				oReSms.style.color = 'white';
+      				onOff = true;
+      			},duration*1000);
+      		
+      		oReSms.addEventListener('tap',function(){
+      			var _this = this;
+      			duration = 60;
+      			if(onOff){
+      				//此处填入发送短信代码
+      				
+      				//按钮锁定
+      				_this.innerHTML = '等待'+duration+'秒';
+      				onOff = false;
+      				_this.style.color = 'gray';
+      				var timer = setInterval(function(){
+      					_this.innerHTML = '等待'+(--duration)+'秒';
+      				},1000)
+      				setTimeout(function(){
+      					clearInterval(timer);
+      					_this.innerHTML = '重新获取';
+      					_this.style.color = 'white';
+      					onOff = true;
+      				},duration*1000);
+      			}else{
+      				return ;
+      			}
+      		});
+      		oBtn.addEventListener('tap',function(){
+      			openPage('findPswStep3.html','findPsw3','0px','0px');
+      		});
+      	});
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav register-nav">
+		<h1 class="mui-title register-nav-text">找回密码</h1>
+		<button class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left register-nav-text register-nav-btn">
+		<span class="mui-icon mui-icon-left-nav"></span>
+			返回
+		</button>
+	</header>
+	<div class="mui-content">
+		<div class="mui-table-view-cell find-navi">
+			<label class="find-step-text">确认账号</label>><label class="find-step-text find-cur-step">安全验证</label>><label class="find-step-text">重置密码</label>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="public-empty-row"></div>
+		<div class="register-list-box">
+			<div class="mui-input-row public-position-relative">
+				<button type="button" id="sms-renew-btn" class="mui-btn register-validate-btn find-renew-sms">
+					重新获取
+				</button>
+				<input type="text" class="find-input find-renew-input" placeholder="请输入收到的验证码">
+			</div>
+		</div>
+		<div class="public-empty-row"></div>
+		<div class="register-button-box">
+			<button id="nextBtn" type="button" class="mui-input-clear mui-btn-block register-button register-button-available">下一步</button>
+		</div>
+	</div>
+</body>
+</html>

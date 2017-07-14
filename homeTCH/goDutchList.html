@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/sub.style.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init({ 
+    	pullRefresh : { 
+	        container:"#refreshDiv",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等    
+	        down : {
+	            contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容 
+	            callback : pullDown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	        },
+	        up : { 
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容 
+            contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容； 
+            callback : pullUp //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据； 
+        	} }
+		});
+		function pullDown(){
+			//以下代码保留
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    	console.log(data);
+			    	alert('12');
+			    },'json' 
+			);*/
+			mui.alert('下拉刷新');
+			//隐藏下拉刷新字样。。
+			mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh(true);
+
+		}
+		function pullUp(){
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    },'json' 
+			);*/
+			mui.alert('上拉加载');
+			//为true不加载重复数据，为false则无限加载
+			this.endPullupToRefresh(true); 
+		}
+		mui.plusReady(function(){
+			var joinBtn = document.getElementsByClassName('du-list-btn');
+			for(var i=0;i<joinBtn.length;i++){
+				joinBtn[0].addEventListener('tap',function(){
+					openPage('_www/public/goDutchNav.html');
+				});
+				joinBtn[1].addEventListener('tap',function(){
+					openPage('_www/public/goDutchNav1.html');
+				});
+			}
+		});
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="refreshDiv" class="mui-content mui-scroll-wrapper"> 
+    		<div class="mui-scroll">
+    			<div class="public-empty-row"></div>
+				<div class="mui-card du-list-card">
+					<div class="mui-pull-left">
+						<div class="list-img-box">
+							<div class="">
+								<img class="mui-media-object list-img" src="../images/TCHAvatar.jpg">
+							</div>
+							<div class="list-gender gender-female">
+								<span class="iconfont icon-nvxing1 list-gender-font"></span>
+							</div>
+						</div>
+					</div>
+					<div class="mui-media-body public-position-relative">
+						<div class="mui-ellipsis du-list-TCHName">初中数理化英欧阳老师</div>
+						<div class="du-list-tag du-list-tag-blue">
+							进行中
+						</div>
+						<div class="du-list-box">
+							<p class="du-list-serv"><span>12年教龄</span><span>免费试听</span></p>
+							<p class="du-list-serv"><span>每<label class="du-red">周二</label>下午<label class="du-red">15:00</label>/<label class="du-red">周四</label>下午<label class="du-red">17:00</label></span></p>
+							<p class="du-list-serv"><span><label class="du-red">14</label>天后报名截止</span></p>
+						</div>
+						<hr class="du-hr"/>
+						<div class="du-list-box">
+							<p class="du-list-addr"><span>上课地址:<label class="mui-icon mui-icon-location-filled"></label>兰州市七里河区龚家坪北路211号-兰州理工大学技术工程学院1A307</span></p>
+							<p class="du-list-people"><span>已报名<label class="mui-icon mui-icon-person-filled"><label	class="du-green">2</label>/6</label></span></p>
+							<div class="du-list-footer">
+								<div class="du-list-TCHPrice">
+									<del>原价￥200-350/小时</del>
+									<span>
+										拼单价￥120/小时
+									</span>
+									<label>优惠40%</label>
+								</div>
+								<div class="du-list-btn">立即加入</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="public-empty-row"></div>
+				<div class="mui-card du-list-card">
+					<div class="mui-pull-left">
+						<div class="list-img-box">
+							<div class="">
+								<img class="mui-media-object list-img" src="../images/avatar_demo4.jpg">
+							</div>
+							<div class="list-gender gender-male">
+								<span class="iconfont icon-nvxing list-gender-font"></span>
+							</div>
+						</div>
+					</div>
+					<div class="mui-media-body public-position-relative">
+						<div class="mui-ellipsis du-list-TCHName">初中数理化英小智老师</div>
+						<div class="du-list-tag du-list-tag-blue">
+							进行中
+						</div>
+						<div class="du-list-box">
+							<p class="du-list-serv"><span>12年教龄</span><span>免费试听</span></p>
+							<p class="du-list-serv"><span>每<label class="du-red">周二</label>下午<label class="du-red">15:00</label>/<label class="du-red">周四</label>下午<label class="du-red">17:00</label></span></p>
+							<p class="du-list-serv"><span><label class="du-red">14</label>天后报名截止</span></p>
+						</div>
+						<hr class="du-hr"/>
+						<div class="du-list-box">
+							<p class="du-list-addr"><span>上课地址:<label class="mui-icon mui-icon-location-filled"></label>兰州市七里河区龚家坪北路211号-兰州理工大学技术工程学院1A307</span></p>
+							<p class="du-list-people"><span>已报名<label class="mui-icon mui-icon-person-filled"><label	class="du-green">2</label>/6</label></span></p>
+							<div class="du-list-footer">
+								<div class="du-list-TCHPrice">
+									<del>原价￥200-350/小时</del>
+									<span>
+										拼单价￥120/小时
+									</span>
+									<label>优惠40%</label>
+								</div>
+								<div class="du-list-btn">立即加入</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="public-empty-row"></div>
+				<div class="mui-card du-list-card">
+					<div class="mui-pull-left">
+						<div class="list-img-box">
+							<div class="">
+								<img class="mui-media-object list-img" src="../images/avatar_demo6.jpg">
+							</div>
+							<div class="list-gender gender-male">
+								<span class="iconfont icon-nvxing list-gender-font"></span>
+							</div>
+						</div>
+					</div>
+					<div class="mui-media-body public-position-relative">
+						<div class="mui-ellipsis du-list-TCHName">小学英语Angela老师</div>
+						<div class="du-list-tag du-list-tag-blue">
+							进行中
+						</div>
+						<div class="du-list-box">
+							<p class="du-list-serv"><span>12年教龄</span><span>免费试听</span></p>
+							<p class="du-list-serv"><span>每<label class="du-red">周二</label>下午<label class="du-red">15:00</label>/<label class="du-red">周四</label>下午<label class="du-red">17:00</label></span></p>
+							<p class="du-list-serv"><span><label class="du-red">14</label>天后报名截止</span></p>
+						</div>
+						<hr class="du-hr"/>
+						<div class="du-list-box">
+							<p class="du-list-addr"><span>上课地址:<label class="mui-icon mui-icon-location-filled"></label>兰州市七里河区龚家坪北路211号-兰州理工大学技术工程学院1A307</span></p>
+							<p class="du-list-people"><span>已报名<label class="mui-icon mui-icon-person-filled"><label	class="du-green">2</label>/6</label></span></p>
+							<div class="du-list-footer">
+								<div class="du-list-TCHPrice">
+									<del>原价￥200-350/小时</del>
+									<span>
+										拼单价￥120/小时
+									</span>
+									<label>优惠40%</label>
+								</div>
+								<div class="du-list-btn">立即加入</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="public-empty-row"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

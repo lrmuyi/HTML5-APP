@@ -1,0 +1,243 @@
+.public-white-bg {
+	background-color: #EEE;
+}
+.public-float-left {
+	float: left;
+}
+.public-float-right {
+	float: right;
+}
+.public-position-relative {
+	position: relative;
+}
+.public-empty-row{
+	height:15px;
+}
+.public-notice-row{
+	height:15px;
+	color:red;
+	padding-top: 3px;
+	font-size:12px;
+}
+.login-content-logo p {
+	margin: 10.7% 0;
+	text-align: center;
+}
+.login-content-logo p img {
+	width: 110px;
+	border-radius: 100px;
+}
+.login-content-login {} .login-list-box label {
+	width: auto;
+}
+.login-input {
+	float: left !important;
+	margin-top: 5px;
+}
+.login-password {
+	width: 60% !important;
+	float: left !important;
+	margin-top: 5px;
+}
+.login-input-border {
+	border-bottom: 1px solid #D5D5D5;
+}
+.login-psw-btn {
+	margin-top: 8px !important;
+	position: absolute;
+	right: -5px;
+}
+.login-button {
+	color: white;
+	margin: 20px 16px 10px 16px;
+}
+.login-button-style {
+	height: 50px;
+	padding: 0px;
+	font-size: 1.1em;
+	background-color: #5BF;
+	color: white;
+	border-radius: 8px;
+}
+.login-taobao {
+	margin-left: 16px;
+}
+.login-forget {
+	margin-right: 16px;
+}
+.login-register {
+	width: 100%;
+	position: absolute;
+	bottom: 20px;
+}
+.login-register p {
+	text-align: center;
+}
+.login-register-btn {
+	width: 75px;
+	color: #5BF;
+	border-color: #5BF;
+}
+.register-nav{
+	background-color: #262A3B;
+}
+
+.register-nav-text{
+	color:white !important;
+}
+.register-nav-btn{
+	font-size: 0.8em !important;
+	margin-right:5px !important;
+}
+.register-nav-btn-border{
+	font-size:12px;
+	padding:4px;
+	border-radius: 4px;
+	border:1px solid !important;
+}
+.register-avatar-box{
+	margin:8% 0 6%;
+}
+.register-avatar-box p{
+	text-align: center;
+}
+.register-avatar-box img{
+	width:85px;
+}
+
+.register-list-box{
+	background-color:white;
+	font-size: 0.8em;
+}
+.register-list-box label{
+	width:86px;
+	margin-top:5px;
+	padding-right:5px;
+}
+.register-input {
+	float: left !important;
+	margin-top:5px;
+	font-size: 1em;	
+	padding-top:4px !important;
+}
+.register-validate-input{
+	width: 30% !important;
+	float: left !important;	
+}
+.register-psw-input{
+	width: 45% !important;
+	float: left !important;	
+}
+.register-validate-btn{
+	width:105px !important;
+	margin-top:3px;
+	margin-right:10px;
+	background-color:#5BF;
+	color:white;
+	border-radius:8px;
+	text-align: center;
+}
+.register-password {
+	width: 55% !important;
+	float: left !important;
+}
+.register-input-border{
+	border-bottom: 1px solid #EEE;
+}
+.register-button-box{
+	color: white;
+	margin: 20px 7px;
+}
+.register-button{
+	height: 45px;
+	padding: 0px;
+	font-size: 1.1em;
+	background-color: #5BF;
+	border-radius:8px;
+}
+.register-button-unavailable{
+	color: #8BBEF2;
+}
+.register-button-available{
+	color: #FFF;
+}
+.register-cution p{
+	text-align: center;
+	font-size: 0.7em;
+}
+.register-cution a{
+	color:#07ACFF;
+}
+.register-agreement{
+	padding:10px !important;
+}
+@media (max-height: 485px) {
+	.login-content-logo p {
+		margin: 6% 0 4% 0;
+	}
+	.login-button {
+		margin: 15px 16px 10px 16px;
+	}
+	.register-button-box{
+		margin: 5px 7px;
+	}
+	.login-register {
+		bottom: 10px;
+	}
+	
+}
+.register-login-btn {
+	color: #5BF;
+	border-color: #5BF;
+}
+.find-navi{
+	background-color: white;
+	text-align: center;
+}
+.find-step-text{
+	margin:0 10px;
+	font-size:0.9em;
+}
+.find-cur-step{
+	color:#5BF;
+}
+.find-input{
+	margin-top:1px;
+	padding-top:4px !important;
+	font-size:1em;
+	border:none !important;
+	margin-bottom: 1px !important;
+}
+.find-validate-input{
+	padding:0px 15px !important;
+	float: left !important;	
+	width:40% !important;
+}
+.find-validate-span{
+	float:right;
+	padding-top: 5px;
+	margin-right:5px;
+}
+.find-validate-span img{
+	width:97px;
+	height:32px;
+}
+.find-validate-btn{
+	width:80px !important;
+	height:;
+	margin-top:6px;
+	margin-right:10px;
+	color:#5BF;
+	border-radius:8px;
+	line-height:8px !important;
+	text-align: center;
+	border-color:#5BF;
+}
+.find-renew-sms{
+	margin-top:2px !important;
+}
+.find-renew-input{
+	padding:0px 15px !important;
+	float: left !important;	
+	width:50% !important;
+}

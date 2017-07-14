@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/common.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/message.sub.css"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <style>
+    	html,body{height:100%;}
+    	.mui-control-content {
+			background-color: white;
+		}
+		.mui-control-content .mui-loading {
+			margin-top: 50px;
+		}
+	</style>
+	<script>
+		mui.init({
+			swipeBack: false
+		});
+		mui.plusReady(function(){
+			var iList = document.getElementById('msg-list');
+			
+			
+			window.addEventListener('onload',function(){
+				window.removeEventListener('tap',goLogin);
+      			fillData();
+      		});
+      		
+      		checkLogin(0);
+	      		
+      		if(localStorage.getItem('login') == 0){
+				window.addEventListener('tap',goLogin);
+      			
+      			return false;
+      		}
+      		
+      		fillData();
+			
+			
+			function fillData(){
+				//模拟数据
+				var data = [{avatar:"images/logo.jpg",title:"系统消息",desc:"您的订单出现异常，请处理...",time:"2016-04-12"},{avatar:"images/avatar_demo3.jpg",title:"金城助教",desc:"[咨询助教老师详情]",time:"2016-05-21"}];
+				
+				/*<div class="mui-table-view-cell">
+					<span class="profile-cell-eva-attr msg-list-header">
+						<p><img src="images/logo.jpg" data-preview-src="" data-preview-group="1" /></p>
+						<label><div>系统消息</div><div>您的订单出现异常，请处理...</div></label>
+						<span class="msg-time">2016-04-12</span>
+					</span>
+				</div>*/
+				for(var i=0;i<data.length;i++){
+					var msgDiv = document.createElement("div");
+					var msgBox = document.createElement("span");
+					var imgBox = document.createElement("p");
+					var oImg = document.createElement("img");
+					var oLabel = document.createElement("label");
+					var oTitle = document.createElement("div");
+					var oDesc = document.createElement("div");
+					var oTime = document.createElement("span");
+					msgDiv.className = 'mui-table-view-cell';
+					msgBox.className = 'profile-cell-eva-attr msg-list-header';
+					oTime.className = 'msg-time';
+					oImg.src = data[i].avatar;
+					oTitle.innerHTML = data[i].title;
+					oDesc.innerHTML = data[i].desc;
+					oTime.innerHTML = data[i].time;
+					imgBox.appendChild(oImg);
+					oLabel.appendChild(oTitle);
+					oLabel.appendChild(oDesc);
+					msgBox.appendChild(imgBox);
+					msgBox.appendChild(oLabel);
+					msgBox.appendChild(oTime);
+					msgDiv.appendChild(msgBox);
+					iList.appendChild(msgDiv);
+				}
+				var aList = document.getElementsByClassName('mui-table-view-cell');
+				for(var i=0;i<aList.length;i++){
+					aList[i].addEventListener('tap',function(){
+						openPage('message/iChat.html');
+					});
+				}
+			}
+			
+			function goLogin(){
+  				mui.toast('请登录');
+  				openPage('_www/public/register.html','register');
+  			}
+		});
+	</script>
+</head>
+<body>
+	<div class="mui-content public-height-100">
+		<div id="slider" class="mui-slider msg-slider-banner public-height-100">
+			<div class="msg-slider-box">
+				<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+					<a class="mui-control-item msg-control-item" href="#item1mobile">
+						<span class="msg-item-title msg-item-title-init"><label>我的消息</label></span>
+					</a>
+					<a class="mui-control-item msg-control-item msg-item-right-border" href="#item2mobile">
+						<span class="msg-item-title"><label>联系人</label></span>
+					</a>
+				</div>
+				<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-6 msg-Progress-bar"></div>
+			</div>
+			
+			<div class="mui-slider-group public-height-100">
+				<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div id="msg-list" class="mui-table-view">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="item2mobile" class="mui-slider-item mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-loading">
+								<div class="mui-spinner">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			if(localStorage.getItem('login') == 0){			
+      			return false;
+      		}
+			var html2 = '<div class="mui-table-view"><div class="mui-table-view-cell"><span class="profile-cell-eva-attr msg-list-header"><p><img src="images/logo.jpg" data-preview-src="" data-preview-group="1" /></p><label><div>系统消息</div><div>您的订单出现异常，请处理...</div></label><span class="msg-time">2016-04-12</span></span></div></div><hr class="msg-hr" />';
+			var item2 = document.getElementById('item2mobile');
+			var aTitle = document.getElementsByClassName('msg-item-title');
+			document.getElementById('slider').addEventListener('slide', function(e) {
+				if (e.detail.slideNumber === 1) {
+					if (item2.querySelector('.mui-loading')) {
+						setTimeout(function() {
+							item2.querySelector('.mui-scroll').innerHTML = html2;
+						}, 500);
+					}
+					aTitle[0].style.color = '#09F';
+					aTitle[1].style.color = 'white';
+				}else{
+					aTitle[1].style.color = '#09F';
+					aTitle[0].style.color = 'white';
+				}
+			});
+		})(mui);
+	</script>
+
+</body>
+</html>

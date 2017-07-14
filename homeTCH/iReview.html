@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="../css/sub.style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <style>
+    	html,body{height:100%;}
+    	.mui-control-content {
+			background-color: white;
+		}
+		.mui-control-content .mui-loading {
+			margin-top: 50px;
+		}
+		.mui-preview-image.mui-fullscreen {
+			position: fixed;
+			z-index: 20;
+			background-color: #000;
+		}
+		.mui-preview-header,
+		.mui-preview-footer {
+			position: absolute;
+			width: 100%;
+			left: 0;
+			z-index: 10;
+		}
+		.mui-preview-header {
+			height: 44px;
+			top: 0;
+		}
+		.mui-preview-footer {
+			height: 50px;
+			bottom: 0px;
+		}
+		.mui-preview-header .mui-preview-indicator {
+			display: none;
+			line-height: 25px;
+			color: #fff;
+			text-align: center;
+			margin: 15px auto 4;
+			width: 70px;
+			background-color: rgba(0, 0, 0, 0.4);
+			border-radius: 12px;
+			font-size: 16px;
+		}
+		.mui-preview-image {
+			display: none;
+			-webkit-animation-duration: 0.5s;
+			animation-duration: 0.5s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+		}
+		.mui-preview-image.mui-preview-in {
+			-webkit-animation-name: fadeIn;
+			animation-name: fadeIn;
+		}
+		.mui-preview-image.mui-preview-out {
+			background: none;
+			-webkit-animation-name: fadeOut;
+			animation-name: fadeOut;
+		}
+		.mui-preview-image.mui-preview-out .mui-preview-header,
+		.mui-preview-image.mui-preview-out .mui-preview-footer {
+			display: none;
+		}
+		.mui-zoom-scroller {
+			position: absolute;
+			display: -webkit-box;
+			display: -webkit-flex;
+			display: flex;
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			justify-content: center;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			-webkit-backface-visibility: hidden;
+		}
+		.mui-zoom {
+			-webkit-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+		}
+		.mui-slider .mui-slider-group .mui-slider-item img {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+			max-height: 100%;
+		}
+		.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+			width: 100%;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+			display: inline-table;
+		}
+		.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+			display: table-cell;
+			vertical-align: middle;
+		}
+		.mui-preview-loading {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			display: none;
+		}
+		.mui-preview-loading.mui-active {
+			display: block;
+		}
+		.mui-preview-loading .mui-spinner-white {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-left: -25px;
+			margin-top: -25px;
+			height: 50px;
+			width: 50px;
+		}
+		.mui-preview-image img.mui-transitioning {
+			-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+			transition: transform 0.5s ease, opacity 0.5s ease;
+		}
+		@-webkit-keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@keyframes fadeIn {
+			0% {
+				opacity: 0;
+			}
+			100% {
+				opacity: 1;
+			}
+		}
+		@-webkit-keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		@keyframes fadeOut {
+			0% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		p img {
+			max-width: 100%;
+			height: auto;
+		}
+	</style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav common-header">
+		<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+		<h1 class="mui-title header-title">教师评价</h1>
+	</header>
+	<div class="mui-content public-height-100">
+		<div id="slider" class="mui-slider public-height-100">
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item iReview-control-item" href="#item1mobile">
+			<span class="iconfont icon-haoping eva-item eva-item-good"><label>好评(18)</label></span>
+		</a>
+				<a class="mui-control-item iReview-control-item" href="#item2mobile">
+			<span class="iconfont icon-zhongping eva-item eva-item-ave"><label>中评(0)</label></span>
+		</a>
+				<a class="mui-control-item iReview-control-item" href="#item3mobile">
+			<span class="iconfont icon-chaping eva-item eva-item-bad"><label>差评(0)</label></span>
+		</a>
+			</div>
+			<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4 iReview-Progress-bar"></div>
+			<div class="mui-slider-group public-height-100">
+				<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell">
+									<span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo8.jpg" data-preview-src="" data-preview-group="0" /></p><label><div>qaqi酱</div><div>初中二年级 英语 老师上门 2小时</div></label><span class="iconfont icon-haoping eva-icon eva-icon-good"></span></span>
+									<span class="profile-cell-content eva-content">英语教学有独到见解，上课思路清晰，针对学生情况不同教学形式，经验充分可以驾驭任何成绩段学生<time>3月30日 10:00</time></span>
+								</div>
+							</div>
+							<hr class="eva-hr" />
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell">
+									<span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo5.jpg" data-preview-src="" data-preview-group="1" /></p><label><div>伊城伊人</div><div>小学六年级 数学 老师上门 2小时</div></label><span class="iconfont icon-haoping eva-icon eva-icon-good"></span></span>
+									<span class="profile-cell-content eva-content">老师经验丰富，上课思路清晰，针对我儿子的学习情况制定了不同的教学方法，很感谢金城家教这个平台让我为儿子找到了一个走捷径的通道。<time>2月21日 12:00</time></span>
+									<span class="profile-cell-content eva-response">老师回复：孩子很认真！希望能再接再厉,应该多花些时间在基本概念上面</span>
+								</div>
+							</div>
+							<hr class="eva-hr" />
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell">
+									<span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo6.jpg" data-preview-src="" data-preview-group="2" /></p><label><div>嘻哈君</div><div>初中三年级 英语 老师上门 2小时</div></label><span class="iconfont icon-haoping eva-icon eva-icon-good"></span></span>
+									<span class="profile-cell-content eva-content">老师很开朗，授课方式新颖，对英语厌倦的儿子经过老师的指导一下兴趣高涨，效果不错，感谢老师，感谢平台<time>2月22日 9:00</time></span>
+									<span class="profile-cell-content eva-response">老师回复：孩子只是没找对属于自己的一种学习方法，自身是很用功的，也很聪明，一点就会</span>
+								</div>
+							</div>
+							<hr class="eva-hr" />
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell">
+									<span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo4.jpg" data-preview-src="" data-preview-group="3" /></p><label><div>科学怪人</div><div>初中二年级 物理 老师上门 2小时</div></label><span class="iconfont icon-haoping eva-icon eva-icon-good"></span></span>
+									<span class="profile-cell-content eva-content">老师经验丰富，化繁为简，稍微点一下，孩子就能明白，确实不错，给好评！下次还用这个平台。<time>2月25日 15:00</time></span>
+								</div>
+							</div>
+							<div class="list-bottom-notice">没有更多评论了亲...</div>
+						</div>
+					</div>
+				</div>
+				<div id="item2mobile" class="mui-slider-item mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-loading">
+								<div class="mui-spinner">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<div id="item3mobile" class="mui-slider-item mui-control-content">
+					<div id="scroll3" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-loading">
+								<div class="mui-spinner">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		mui.init({
+			swipeBack: false
+		});
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			var html2 = '<div class="mui-table-view"><div class="mui-table-view-cell"><span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo3.jpg" data-preview-src="" data-preview-group="4" /></p><label><div>怪叔叔</div><div>初中一年级 英语 老师上门 2小时</div></label><span class="iconfont icon-zhongping eva-icon eva-icon-ave"></span></span><span class="profile-cell-content eva-content">老师是大学生，可能没授课经验，有点拘谨，可以理解，不过懂得确实挺多，讲的孩子也很容易接受。<time>3月30日 10:00</time></span></div></div><hr class="eva-hr" /><div class="mui-table-view"><div class="mui-table-view-cell"><span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo7.jpg" data-preview-src="" data-preview-group="5" /></p><label><div>挖掘机</div><div>初中二年级数学 老师上门 2小时</div></label><span class="iconfont icon-zhongping eva-icon eva-icon-ave"></span></span><span class="profile-cell-content eva-content">老师讲的不错，只是感觉授课方式有点死板，能因材施教再好不过了。<time>1月20日 10:00</time></span><span class="profile-cell-content eva-response"></span></div></div><div class="list-bottom-notice">没有更多评论了亲...</div>';
+			var html3 = '<div class="mui-table-view"><div class="mui-table-view-cell"><span class="profile-cell-eva-attr eva-header"><p><img src="../images/avatar_demo9.jpg" data-preview-src="" data-preview-group="6" /></p><label><div>幽兰空梦</div><div>小学五年级 英语 老师上门 2小时</div></label><span class="iconfont icon-chaping eva-icon eva-icon-bad"></span></span><span class="profile-cell-content eva-content">老师是学生，不太专业，对孩子没有足够的耐心，讲的不是很透彻，孩子听的不是太明白，希望老师在多多练习下。<time>2月15日 10:00</time></span><span class="profile-cell-content eva-response"></span></div></div><div class="list-bottom-notice">没有更多评论了亲...</div>';
+			var item2 = document.getElementById('item2mobile');
+			var item3 = document.getElementById('item3mobile');
+			document.getElementById('slider').addEventListener('slide', function(e) {
+				if (e.detail.slideNumber === 1) {
+					if (item2.querySelector('.mui-loading')) {
+						setTimeout(function() {
+							item2.querySelector('.mui-scroll').innerHTML = html2;
+						}, 500);
+					}
+				} else if (e.detail.slideNumber === 2) {
+					if (item3.querySelector('.mui-loading')) {
+						setTimeout(function() {
+							item3.querySelector('.mui-scroll').innerHTML = html3;
+						}, 500);
+					}
+				}
+			});
+		})(mui);
+	</script>
+
+</body>
+	<script src="../js/mui.zoom.js"></script>
+	<script src="../js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+</html>

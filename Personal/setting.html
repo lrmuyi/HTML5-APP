@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/personal.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		var aboutUs = document.getElementById('aboutUs');
+      		var logout = document.getElementById("logout");
+      		aboutUs.addEventListener('tap',function(){
+      			openPage('aboutUs.html');
+      		});
+      		logout.addEventListener('tap',function(){
+      			var sWaiting = plus.nativeUI.showWaiting("注销中");
+      			localStorage.removeItem('phone');
+      			localStorage.removeItem('username');
+      			localStorage.removeItem('password');
+//    			localStorage.removeItem('imei');
+//    			localStorage.removeItem('imei');
+//    			localStorage.removeItem('avator');
+//    			
+      			
+      			var previous = plus.webview.currentWebview().opener();
+      			var myHomeNav = plus.webview.getWebviewById('my-nav.html');
+				var msgLobby = plus.webview.getWebviewById('msgLobby.html');
+      			var bottomNav = plus.webview.getWebviewById('HBuilder');
+      			previous.reload();
+      			myHomeNav.reload();
+      			msgLobby.reload();
+      			mui.fire(bottomNav,'logout');
+      			
+        		/*var wvs=plus.webview.all();
+				for(var i in wvs){
+					if(wvs[i].id != 'login'&&wvs[i].id != 'HBuilder'&&wvs[i].id != 'register'&&wvs[i].id != 'index.html'){
+						wvs[i].reload();
+					}
+				}*/
+//				var mainNavi = plus.webview.getWebviewById('HBuilder');
+				//mainNavi.reload(true);
+				setTimeout(function(){
+					mui.toast('您已退出登录');
+					sWaiting.close();
+					mui.back();
+				},1500);
+      		});
+      	});
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">设置</h1>
+	</header>
+	<div class="mui-content public-BG-white">
+	    <div class="mui-scroll">
+	    	<div class="public-empty-row-s"></div>
+			<ul class="mui-table-view">
+				<li id="aboutUs" class="mui-table-view-cell public-inrow-title">
+					<span>关于金城家教</span><var>0.0.1</var><label class="mui-icon mui-icon-arrowright mui-pull-right"></label>
+				</li>
+			</ul>
+			<div id="logout" class="mui-btn public-btn-row">退出登录</div>
+		</div>
+	</div>
+</body>
+</html>

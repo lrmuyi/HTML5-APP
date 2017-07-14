@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/sub.style.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init(/*{ 
+    	pullRefresh : { 
+	        container:"#refreshDiv",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等    
+	        down : {
+	            contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容 
+	            callback : pullDown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	        },
+	        up : { 
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容 
+            contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容； 
+            callback : pullUp //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据； 
+        	} }
+		}*/);
+		var request_url = localStorage.getItem('request_url');	
+			
+			function insert(){
+			mui.post(request_url + 'Home/Message/get_card', {						
+					}, function(data) {
+						
+							for (var a in data) {
+								var card_list = document.getElementById('card');
+								
+								var tmpl = '<div class="public-empty-row"></div>'
+									+'		<div class="mui-card list-card">'
+									+'	<a href="javascript:;">'
+									+'		<div class="mui-pull-left">'
+									+'		<div class="list-img-box">'
+									+'				<img class="mui-media-object list-img" src="../images/TCHAvatar6.jpg">'
+									+'		<div  class="list-gender gender-male">'	
+									+'		<span class="iconfont icon-nvxing list-gender-font"></span>'
+									+'				</div>'
+									+'			</div>'
+									+'		</div>'
+									+'		<div class="mui-media-body public-position-relative">'
+									+'			<div class="mui-ellipsis list-TCHName"><span>'+data[a].subject+'</span><span id="tname">'+data[a].tname+'</span>老师</div>'
+									+'			<div class="list-TCHPrice">'
+									+'				￥'+data[a].prices+'/小时'
+									+'			</div>'
+									+'			<hr />'
+									+'			<div class="list-box">'
+									+'				<p class="list-text list-text-top-space">'
+									+'				<span class="list-auth list-auth-red">金城</span>'
+									+'				<span class="list-auth list-auth-blue">大学生</span>'
+									+'				<span class="list-auth list-auth-orange">实名</span>'
+									+'				<span class="list-auth list-auth-green">云家教</span></p>'
+									+'				<p class="list-serv"><span>'+data[a].tage+'年教龄</span><span>'+data[a].subtype+'</span></p>'
+									+'			</div>'
+									+'		</div>'
+									+'		</a>'
+									+'    		</div>'; 
+									card_list.innerHTML+=tmpl;
+							}
+							click_event();
+					}, 'json');
+					
+					}
+			mui.plusReady(function() {
+				insert();
+				
+			});
+			function click_event(){
+				var aTarget = document.getElementsByTagName('a');
+				var otname = document.getElementById('tname');
+
+				for(var i = 0; i < aTarget.length; i++) {
+					aTarget[i].addEventListener('tap', function() {
+						var tapdata = plus.webview.getWebviewById('iTCH2.html'); 
+							mui.fire(tapdata,'namedata',{
+  							//自定义事件参数
+						
+  							 
+  						name:otname.innerHTML
+						});
+//						alert(otname.innerHTML);
+						openPage('iTCH2.html');
+					});
+				}
+			}
+		function pullDown(){
+			//以下代码保留
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    	console.log(data);
+			    	alert('12');
+			    },'json' 
+			);*/
+			//mui.alert('下拉刷新');
+			//隐藏下拉刷新字样。。
+			mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh(true);
+
+		}
+		function pullUp(){
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    },'json' 
+			);*/
+			//mui.alert('上拉加载');
+			//为true不加载重复数据，为false则无限加载
+			this.endPullupToRefresh(true); 
+		}
+		mui.plusReady(function(){
+			var aTarget = document.getElementsByTagName('a');
+			for(var i=0;i<aTarget.length;i++){
+				aTarget[0].addEventListener('tap',function(){
+					openPage('iTCH2.html');
+				});
+				aTarget[1].addEventListener('tap',function(){
+					openPage('iTCH3.html');
+				});
+			}
+		});
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="refreshDiv" class="mui-content mui-scroll-wrapper"> 
+    		<div class="mui-scroll"id="card">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

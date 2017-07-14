@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" href="../css/personal.style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <style>
+   		html,body{height:100%;}
+    	.mui-control-content {
+			background-color: white;
+		}
+		.mui-control-content .mui-loading {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<header id="header" class="mui-bar mui-bar-nav common-header">
+		<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+		<h1 class="mui-title header-title">我的订单</h1>
+	</header>
+	<div class="mui-content public-height-100">
+		<div id="slider" class="mui-slider public-height-100">
+			<div id="sliderSegmentedControl" class="mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
+				<a class="mui-control-item iOrder-control-item" href="#item1mobile">
+					<span>进行中</span>
+				</a>
+				<a class="mui-control-item iOrder-control-item" href="#item2mobile">
+					<span class="public-position-relative">已完成<label class="iconfont icon-dian iOrder-title-badge"></label></span>
+				</a>
+				<a class="mui-control-item iOrder-control-item" href="#item3mobile">
+					<span>已关闭</span>
+				</a>
+			</div>
+			<div id="sliderProgressBar" class="mui-slider-progress-bar mui-col-xs-4 iOrder-Progress-bar"></div>
+			<div class="mui-slider-group public-height-100">
+				<div id="item1mobile" class="mui-slider-item mui-control-content mui-active">
+					<div id="scroll1" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="public-empty-row-s"></div>
+							<div class="mui-table-view">
+								<div id="orderSheet" class="mui-table-view-cell iOrder-avatar-box">
+									<div class="iOrder-avatar">
+										<img src="../images/mien3.jpg"/>
+										<span class="iconfont icon-nvxing1"></span>
+									</div>
+									<div class="iOrder-avatar">
+										<div class="iOrder-avatar-name">
+											初中数理化张苗苗老师<label>金牌</label></span>
+										</div>
+										<div class="iOrder-avatar-desc">
+											已辅导12次，剩余8次
+										</div>
+									</div>
+									<div class="iconfont icon-biaoxing iOrder-avatar-way">
+										<span>拼单、老师上门</span>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-table-box">
+									<div class="iOrder-table iOrder-table-cell-1">
+										下次上课
+										<p><span>5</span>月<span>2</span>日</p>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-2">
+										<div class="mui-pull-left iOrder-table-cell-2-left">
+											<div>
+												从<span>10:00</span>
+											</div>
+											<div>
+												到<span>12:00</span>
+											</div>
+										</div>
+										<div class="mui-pull-left iOrder-table-cell-2-right">
+											共<span>2</span>学时
+										</div>
+										<div class="iOrder-table-border"></div>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-3">
+										地点
+										<p class="mui-ellipsis-2">兰州市七里河区瓜州路288号-兰州市七里河区瓜州路288号</p>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-control">
+									<span class="iOrder-number">订单号23212212</span>
+									<span class="mui-btn mui-btn-yellow iOrder-btn2">提醒老师上课</span>
+									<span class="mui-btn mui-btn-green iOrder-btn3">留言</span>
+								</div>
+							</div>
+							<div class="public-empty-row"></div>
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell iOrder-avatar-box">
+									<div class="iOrder-avatar">
+										<img src="../images/avatar_demo4.jpg"/>
+										<span class="iconfont icon-nvxing iOrder-avatar-male"></span>
+									</div>
+									<div class="iOrder-avatar">
+										<div class="iOrder-avatar-name">
+											高中数学郑智薰老师<label>金牌</label></span>
+										</div>
+										<div class="iOrder-avatar-desc">
+											已辅导24次，剩余1次
+										</div>
+									</div>
+									<div class="iconfont icon-biaoxing iOrder-avatar-way">
+										<span>老师上门</span>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-table-box">
+									<div class="iOrder-table iOrder-table-cell-1">
+										下次上课
+										<p><span>4</span>月<span>24</span>日</p>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-2">
+										<div class="mui-pull-left iOrder-table-cell-2-left">
+											<div>
+												从<span>16:00</span>
+											</div>
+											<div>
+												到<span>18:00</span>
+											</div>
+										</div>
+										<div class="mui-pull-left iOrder-table-cell-2-right">
+											共<span>2</span>学时
+										</div>
+										<div class="iOrder-table-border"></div>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-3">
+										地点
+										<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-control">
+									<span class="iOrder-number">订单号23212212</span>
+									<span class="mui-btn mui-btn-red iOrder-btn1">付款</span>
+									<span class="mui-btn mui-btn-grey iOrder-btn2">关闭</span>
+									<span class="mui-btn mui-btn-green iOrder-btn3">留言</span>
+								</div>
+							</div>
+							<div class="public-empty-row"></div>
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell iOrder-avatar-box">
+									<div class="iOrder-avatar">
+										<img src="../images/avatar_demo.jpg"/>
+										<span class="iconfont icon-nvxing1"></span>
+									</div>
+									<div class="iOrder-avatar">
+										<div class="iOrder-avatar-name">
+											高中英语圆圆老师<label>金牌</label></span>
+										</div>
+										<div class="iOrder-avatar-desc">
+											已辅导4次，剩余1次
+										</div>
+									</div>
+									<div class="iconfont icon-biaoxing iOrder-avatar-way">
+										<span>老师上门</span>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-table-box">
+									<div class="iOrder-table iOrder-table-cell-1">
+										下次上课
+										<p><span>4</span>月<span>25</span>日</p>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-2">
+										<div class="mui-pull-left iOrder-table-cell-2-left">
+											<div>
+												从<span>16:00</span>
+											</div>
+											<div>
+												到<span>18:00</span>
+											</div>
+										</div>
+										<div class="mui-pull-left iOrder-table-cell-2-right">
+											共<span>2</span>学时
+										</div>
+										<div class="iOrder-table-border"></div>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-3">
+										地点
+										<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-control">
+									<span class="iOrder-number">订单号23212212</span>
+									<span class="mui-btn mui-btn-yellow iOrder-btn2">提醒老师上课</span>
+									<span class="mui-btn mui-btn-green iOrder-btn3">留言</span>
+								</div>
+							</div>
+							<div class="public-empty-row"></div>
+							<div class="mui-table-view">
+								<div class="mui-table-view-cell iOrder-avatar-box">
+									<div class="iOrder-avatar">
+										<img src="../images/avatar_demo3.jpg"/>
+										<span class="iconfont icon-nvxing1"></span>
+									</div>
+									<div class="iOrder-avatar">
+										<div class="iOrder-avatar-name">
+											高中生物<label>金牌</label></span>
+										</div>
+										<div class="iOrder-avatar-desc">
+											已辅导22次，剩余3次
+										</div>
+									</div>
+									<div class="iconfont icon-biaoxing iOrder-avatar-way">
+										<span>老师上门</span>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-table-box">
+									<div class="iOrder-table iOrder-table-cell-1">
+										下次上课
+										<p><span>4</span>月<span>28</span>日</p>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-2">
+										<div class="mui-pull-left iOrder-table-cell-2-left">
+											<div>
+												从<span>16:00</span>
+											</div>
+											<div>
+												到<span>18:00</span>
+											</div>
+										</div>
+										<div class="mui-pull-left iOrder-table-cell-2-right">
+											共<span>2</span>学时
+										</div>
+										<div class="iOrder-table-border"></div>
+									</div>
+									<div class="iOrder-table iOrder-table-cell-3">
+										地点
+										<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p>
+									</div>
+								</div>
+								<div class="mui-table-view-cell iOrder-control">
+									<span class="iOrder-number">订单号23212212</span>
+									<span class="mui-btn mui-btn-yellow iOrder-btn2">提醒老师上课</span>
+									<span class="mui-btn mui-btn-green iOrder-btn3">留言</span>
+								</div>
+							</div>
+							<div class="public-empty-row"></div>
+							<div class="list-bottom-notice">没有更多订单了亲...</div>
+						</div>
+					</div>
+				</div>
+				<div id="item2mobile" class="mui-slider-item mui-control-content">
+					<div id="scroll2" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-loading">
+								<div class="mui-spinner">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="item3mobile" class="mui-slider-item mui-control-content">
+					<div id="scroll3" class="mui-scroll-wrapper">
+						<div class="mui-scroll">
+							<div class="mui-loading">
+								<div class="mui-spinner">
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		mui.init({
+			swipeBack: false
+		});
+		(function($) {
+			$('.mui-scroll-wrapper').scroll({
+				indicators: true //是否显示滚动条
+			});
+			var html2 = '<div class="public-empty-row-s"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/mien3.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">初中数理化张苗苗老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导12次，剩余8次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>拼单、老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>5</span>月<span>2</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>10:00</span></div><div>到<span>12:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">兰州市七里河区瓜州路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo4.jpg"/><span class="iconfont icon-nvxing iOrder-avatar-male"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中数学郑智薰老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导24次，剩余1次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>24</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中英语圆圆老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导4次，剩余1次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>25</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo3.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中生物<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导22次，剩余3次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>28</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="list-bottom-notice">没有更多订单了亲...</div>';
+			var html3 = '<div class="public-empty-row-s"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/mien3.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">初中数理化张苗苗老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导12次，剩余8次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>拼单、老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>5</span>月<span>2</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>10:00</span></div><div>到<span>12:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">兰州市七里河区瓜州路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo4.jpg"/><span class="iconfont icon-nvxing iOrder-avatar-male"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中数学郑智薰老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导24次，剩余1次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>24</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中英语圆圆老师<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导4次，剩余1次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>25</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="mui-table-view"><div class="mui-table-view-cell iOrder-avatar-box"><div class="iOrder-avatar"><img src="../images/avatar_demo3.jpg"/><span class="iconfont icon-nvxing1"></span></div><div class="iOrder-avatar"><div class="iOrder-avatar-name">高中生物<label>金牌</label></span></div><div class="iOrder-avatar-desc">已辅导22次，剩余3次</div></div><div class="iconfont icon-biaoxing iOrder-avatar-way"><span>老师上门</span></div></div><div class="mui-table-view-cell iOrder-table-box"><div class="iOrder-table iOrder-table-cell-1">下次上课<p><span>4</span>月<span>28</span>日</p></div><div class="iOrder-table iOrder-table-cell-2"><div class="mui-pull-left iOrder-table-cell-2-left"><div>从<span>16:00</span></div><div>到<span>18:00</span></div></div><div class="mui-pull-left iOrder-table-cell-2-right">共<span>2</span>学时</div><div class="iOrder-table-border"></div></div><div class="iOrder-table iOrder-table-cell-3">地点<p class="mui-ellipsis-2">七里河区龚家坪北路288号-兰州市七里河区瓜州路288号</p></div></div><div class="mui-table-view-cell iOrder-control"><span class="iOrder-number">订单号23212212</span><span class="mui-btn iOrder-btn1">提醒老师上课</span><span class="mui-btn iOrder-btn2">留言</span></div></div><div class="public-empty-row"></div><div class="list-bottom-notice">没有更多订单了亲...</div>';
+			var item2 = document.getElementById('item2mobile');
+			var item3 = document.getElementById('item3mobile');
+			document.getElementById('slider').addEventListener('slide', function(e) {
+				if (e.detail.slideNumber === 1) {
+					if (item2.querySelector('.mui-loading')) {
+						setTimeout(function() {
+							item2.querySelector('.mui-scroll').innerHTML = html2;
+						}, 500);
+					}
+				} else if (e.detail.slideNumber === 2) {
+					if (item3.querySelector('.mui-loading')) {
+						setTimeout(function() {
+							item3.querySelector('.mui-scroll').innerHTML = html3;
+						}, 500);
+					}
+				}
+			});
+		})(mui);
+		var orderSheet = document.getElementById('orderSheet');
+		orderSheet.addEventListener('tap',function(){
+			openPage('orderSheetNav.html');
+		});
+	</script>
+
+</body>
+</html>

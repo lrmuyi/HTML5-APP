@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/common.js" ></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/main.style.css" />
+    <script type="text/javascript" charset="utf-8">
+      	mui.init({ 
+		    subpages:[{ 
+		    url:'my.html',//下拉刷新内容页面地址 
+		    id:'myHome',//内容页面标志
+		     styles:{ top:'44px',
+		     		  bottom:'0px'//内容页面顶部位置,需根据实际页面布局计算，若使用标准mui导航，顶部默认为48px； .....//其它参数定义
+		     }, extras:{}
+		    }] 
+		});
+		mui.plusReady(function(){
+			
+			var oLetter = document.getElementById('letter');
+			checkLogin(0);
+			window.addEventListener('onload',function(){
+      			fillData();
+      		});
+      		
+      		if(localStorage.getItem('login') == 0){
+				oLetter.addEventListener('tap',function(){
+      				mui.toast('请登录');
+      				openPage('_www/public/login.html','login');
+      			});
+      			
+      			return false;
+      		}
+      		
+      		fillData();
+      		
+      		oLetter.addEventListener('tap',function(){
+      			mui.toast('私信功能开发中，敬请期待');
+      		});
+      		
+      		function fillData(){
+//    			//<span class="mui-badge my-nav-icon-badge public-badge">9</span>
+//    			var badgeSpan = document.createElement("span");
+//    			badgeSpan.className = 'mui-badge my-nav-icon-badge public-badge';
+//    			badgeSpan.innerHTML = '3';
+//    			oLetter.appendChild(badgeSpan);
+      		}
+		});
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav index-header">
+		<span class="mui-icon mui-icon-location mui-pull-left index-nav-btn-left"><label id="city">兰州</label></span>
+		<h1 class="mui-title header-title">我的</h1>
+		<span id="letter" class="mui-icon mui-icon-email mui-pull-right index-nav-btn-right"></span>
+	</header>
+</body>
+</html>

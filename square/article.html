@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+    	pullRefresh : { 
+	        container:"#refreshDiv",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等    
+	        down : {
+	            contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容 
+	            callback : pullDown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	        },
+	        up : { 
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容 
+            contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容； 
+            callback : pullUp //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据； 
+        	} }
+		});
+		function pullDown(){
+			//以下代码保留
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    	console.log(data);
+			    	alert('12');
+			    },'json' 
+			);*/
+			mui.alert('下拉刷新');
+			//隐藏下拉刷新字样。。
+			mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh();
+
+		}
+		function pullUp(){
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    },'json' 
+			);*/
+			mui.alert('上拉加载');
+			//为true不加载重复数据，为false则无限加载
+			this.endPullupToRefresh(false); 
+		}
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="refreshDiv" class="mui-content mui-scroll-wrapper"> 
+    		<div class="mui-scroll">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell"><span class="article-title">明天10点，请大家帮忙做一个很重要的投票！明天10点，请大家帮忙</span></li>
+					<li class="mui-table-view-cell">
+						<div class="article-author">
+							<div class="article-author-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<div>
+									<span class="article-author-name">圆桌上的舞<i class="article-author-tag">管理员</i></span>
+									<span class="article-author-timestamp">
+										2016-04-12 20:43 <span>兰州 七里河</span>
+									</span>
+								</div>
+							</div>
+							<div class="article-author-right">
+									<div class="article-author-position"><span>楼主</span></div>
+									<div class="article-item-number"><span class="mui-icon mui-icon-eye article-author-icon1"></span><span class="article-author-number">1222</span>
+									<span class="mui-icon mui-icon-chatbubble-filled article-author-icon2"></span><span>22</span></div>
+							</div>
+						</div>
+						<div class="article-content">
+							蔬菜瓜果除了可以做成可口的菜肴外，还可以制成富含抗氧化物的果蔬汁饮品。果蔬菜汁能有效为人体补充维生素以及钙、磷、钾、镁等矿物质，可以调整人体功能协调，增强细胞活力以及肠胃功能，促进消化液分泌、消除疲劳。现在跟小编去看看果蔬汁食谱搭配吧！
+							<img src="http://photocdn.sohu.com/20160227/mp60863580_1456579044262_1_th.jpg" data-preview-src="" data-preview-group="0"/>
+							适合女性、男性、精力不足、熬夜工作者饮用。预防雀斑、日晒、皮肤粗糙具良好美容效果；增强精力、安定神经、对失眠有效
+						</div>
+					</li>
+				</ul>
+				<div class="public-empty-row-s"></div>
+			    <ul class="mui-table-view">
+					<li class="mui-table-view-cell detail-discuz-cell">
+						<div class="detail-cell-title">全部评论：<div class="mui-icon mui-icon-paperplane mui-pull-right detail-discuz-header-icon"></div></div>
+						<div class="detail-discuz">
+							<div class="detail-discuz-avatar"><img src="../images/logo.jpg" /></div>
+							<div class="detail-discuz-main">
+								<div class="detail-discuz-username mui-ellipsis">圆桌上的舞<span>♂</span></div>
+								<div class="detail-discuz-right-icon"><label>1</label><span class="iconfont icon-9 detail-discuz-voteup"></span></div>
+								<div class="detail-discuz-timeplace">3#<span>6分钟前</span><span>来自 七里河区龚家湾</span></div>
+								<div class="detail-discuz-content">你好，我想参加活动，不知道你们怎么收费？你好，我想参加活动，不知道你们怎么收费？你好，我想参加活动，不知道你们怎么收费？你好，我想参加活动，不知道你们怎么收费？</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell detail-discuz-cell">
+						<div class="detail-discuz">
+							<div class="detail-discuz-avatar"><img src="../images/logo.jpg" /></div>
+							<div class="detail-discuz-main">
+								<div class="detail-discuz-username mui-ellipsis detail-discuz-female">洛神<span>♀</span></div>
+								<div class="detail-discuz-right-icon"><span class="iconfont icon-9"></span></div>
+								<div class="detail-discuz-timeplace">2#<span>25分钟前</span><span>城关区南关十字</span></div>
+								<div class="detail-discuz-reply">
+									<div class="discuz-reply-header">引用：圆桌上的舞 发表于 2016-04-13 12:00:24</div>
+									<div class="discuz-reply-content">
+										你好，我想参加活动，不知道你们怎么收费？你好，我想参加活动，不知道你们怎么收费？
+									</div>
+								</div>
+								<div class="detail-discuz-content">路过。。。</div>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell detail-discuz-cell">
+						<div class="detail-discuz">
+							<div class="detail-discuz-avatar"><img src="../images/logo.jpg" /></div>
+							<div class="detail-discuz-main">
+								<div class="detail-discuz-username mui-ellipsis detail-discuz-female">洛神<span>♀</span></div>
+								<div class="detail-discuz-right-icon"><span class="iconfont icon-9"></span></div>
+								<div class="detail-discuz-timeplace">1#<span>25分钟前</span><span>城关区南关十字</span></div>
+								<div class="detail-discuz-content">路过。。。</div>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+</body>
+	<script src="../js/mui.zoom.js"></script>
+	<script src="../js/mui.previewimage.js"></script>
+	<script>
+		mui.previewImage();
+	</script>
+</html>

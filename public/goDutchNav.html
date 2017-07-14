@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/personal.style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/sub.style.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+		    subpages:[{ 
+		    url:'goDutch.html',//下拉刷新内容页面地址 
+		    id:'goDutch',//内容页面标志
+		     styles:{ top:'44px',
+		     		  bottom:'50px'//内容页面顶部位置,需根据实际页面布局计算，若使用标准mui导航，顶部默认为48px； .....//其它参数定义
+		     }, extras:{}
+		    }] 
+		});
+      	mui.plusReady(function() {
+      		
+      	});
+    </script>
+</head>
+<body>
+	
+	<header id="header" class="mui-bar mui-bar-nav common-header">
+		<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+		<h1 class="mui-title header-title">订单确认</h1>
+	</header>
+	<nav class="mui-bar mui-bar-tab">
+		<div class="mui-pull-right">
+			<span class="mui-btn orderSheet-btn mui-btn-blue">立即支付</span>
+		</div>
+	</nav>
+</body>
+</html>

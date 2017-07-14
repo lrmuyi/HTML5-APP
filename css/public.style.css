@@ -1,0 +1,102 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+body {
+	background-color: #efeff4;
+	font-family: "微软雅黑";
+}
+.mui-active{
+	color:inherit !important;
+	background:inherit !important;
+}
+.mui-table-view-cell:after {
+	left:10px;
+	right:10px;
+}
+.public-empty-row{
+	height:15px;
+}
+.public-empty-row-s{
+	height:8px;
+}
+.public-position-relative{
+	position:relative;
+}
+.public-BG-white{
+	background-color:white !important;
+}
+.public-inrow-title{
+	position: relative;
+	font-size:15px;
+	line-height:25px;
+}
+.public-inrow-content{
+	font-size:15px;
+}
+.public-inrow-state{
+	font-size:14px;
+	color:red;
+}
+.public-inrow-title var{
+	position:absolute;
+	right:40px;
+	font-size:13px;
+	color:gray;
+}
+.public-card{
+	margin:0 6px !important;
+}
+.public-incard-title{
+	font-size:14px;
+	margin:10px 0 0 10px;
+}
+.public-black-text{
+	color:black;
+}
+.public-row-title{
+	padding:15px 0 5px 17px;
+	font-size:14px;
+	color:gray;
+}
+.public-text-gray{
+	color:silver;
+}
+.public-btn-row{
+	margin:15px auto 0;
+	display:block;
+	width:97%;
+	height:46px;
+	line-height:32px;
+	background-color:#09F;
+	color:white;
+	font-size:1em;
+	border-radius:5px;
+}
+.public-border-left{
+	border-left:1px solid silver;
+}
+.public-border-right{
+	border-right:1px solid silver;
+}
+.order-row-banned{
+	color:gray;
+}
+.order-tech-tel{
+	margin-right: 0 !important;
+	font-size:14px;
+}
+.order-tech-addr{
+	font-size:15px;
+}
+.order-addr-icon{
+	font-size:20px;
+}
+.order-numbox{
+	height:auto;
+}
+.order-addr-tag{
+	font-size:12px;
+	color:gray;
+	float:right;
+}

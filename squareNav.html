@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+		    subpages:[{ 
+		    url:'square.html',//下拉刷新内容页面地址 
+		    id:'square',//内容页面标志
+		     styles:{ top:'44px',
+		     		  bottom:'0'//内容页面顶部位置,需根据实际页面布局计算，若使用标准mui导航，顶部默认为48px； .....//其它参数定义
+		     }, extras:{}
+		    }] 
+		});
+		mui.plusReady(function(){
+			var addBtn = document.getElementById('addNew');
+			addBtn.addEventListener('tap',function(){
+				openPage('square/addArticleNav.html');
+			});
+		});
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav index-header">
+		<span class="mui-icon mui-icon-contact-filled mui-pull-left index-nav-btn-left"></span>
+		<div id="index-search" class="index-search-box">
+			<div class="mui-input-row mui-search index-search">
+				<input type="search" placeholder="搜索主题" />
+			</div>
+		</div>
+		<span id="addNew" class="mui-pull-right index-nav-btn-right"><span class="mui-icon iconfont icon-fatie artList-header-icon"></span><span class="artList-header-act">发帖</span></span>
+	</header>
+</body>
+</html>

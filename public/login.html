@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/common.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/identify.style.css" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			var request_url = localStorage.getItem('request_url');
+			mui.plusReady(function(){
+				
+				var phoneNum = document.getElementById("phoneNo");
+				var oRegBtn = document.getElementById('register');
+				var oPswFgt = document.getElementById('login-forget');
+				var register_btn = document.getElementById('login-register');
+				var navReg = document.getElementById("nav-reg")
+				var pswIpt = document.getElementById("password");
+				var iLogin = document.getElementById("login");
+				var thisPage = plus.webview.currentWebview();
+				var iAvatar = document.getElementById("avatar");
+				
+				if(thisPage.phone){
+					phoneNum.value = thisPage.phone;
+				}
+				
+				window.addEventListener('getPhone',function(event){
+					phoneNum.value = event.detail.phone;
+				});
+				
+				window.addEventListener('resize',function(){
+					if(register_btn.offsetTop<400){
+						oRegBtn.style.display = 'none';
+					}
+					if(register_btn.offsetTop>400){
+						oRegBtn.style.display = '';
+					}
+					//if(document.body.offsetHeight<)
+				});
+				phoneNum.addEventListener('keyup',function(){
+					this.value=this.value.replace(/[^\d]/g,'');
+					if(this.value.length > 11){
+						this.value = this.value.substring(0,11);     
+					}else{
+						fixed(this);
+					}
+				});
+				phoneNum.addEventListener('blur',function(){
+					if(this.value.length < 1){
+						wrongInput(this,'手机号码或用户名输入有误');
+					}else if(this.value.length==11){
+						iAvatar.src = '../images/logo.jpg';
+						fixed(this);
+					}
+				});
+				pswIpt.addEventListener('blur',function(){
+					if(this.value.length < 6){
+						wrongInput(this,'密码输入有误，请重新输入');
+					}
+				});
+				oRegBtn.addEventListener('tap',function() {
+					//打开新窗口
+					openPage('register.html', 'register', '0px', '0px');
+				});
+				navReg.addEventListener('tap',function(){
+					openPage('register.html', 'register', '0px', '0px');
+				});
+				oPswFgt.addEventListener('tap',function(){
+					openPage('findPswStep1.html','findPsw','0','0');
+				});
+				iLogin.addEventListener('tap',function(){
+					if(phoneNum.value.length<1){
+						wrongInput(phoneNum,'手机号码或用户名输入有误');
+						return false;
+					}
+					if(pswIpt.value.length<6){
+						wrongInput(pswIpt,'密码输入有误，请重新输入');
+						return false;
+					}
+					var sWaiting = plus.nativeUI.showWaiting("正在登录");
+					mui.post(request_url + 'Home/Indentify/login',{ //请求接口地址
+					    phone:phoneNum.value,   // 参数  键 ：值
+					    imei:plus.device.imei,
+					    password:pswIpt.value
+					    },function(data){ // data为服务器端返回数据
+					    //获得服务器响应 ... 
+							sWaiting.close();
+					    	if(data.status === -1){
+					    		wrongInput(phoneNum,'手机号码或用户名输入有误');
+					    	}else if(data.status === -2){
+					     		mui.toast('该手机号未注册');
+					     }else if(data.status === -3){
+					     		mui.toast('手机号与密码不匹配，请重试');
+					     	}else{
+					     		mui.toast('登录成功');
+					     		localStorage.setItem('username',data.username);
+					     		localStorage.setItem('phone',data.phone);
+					     		localStorage.setItem('imei',data.imei);
+					     		localStorage.setItem('imei0',data.imei0);
+					     		localStorage.setItem('password',data.password);
+					     		localStorage.setItem('avatar',data.avatar);
+					     		localStorage.setItem('login',1);
+					     		loggedFire();
+								//var wvs=plus.webview.all();
+								/*for(var i in wvs){
+									if(wvs[i].id != 'HBuilder'&&wvs[i].id != 'myHome'&&wvs[i].id != 'login'&&wvs[i].id != 'register'&&wvs[i].id != 'index.html'){
+										wvs[i].reload();
+									}
+								}*/
+								plus.webview.show('HBuilder');
+								var reg = plus.webview.getWebviewById('register');
+								plus.webview.close(reg);
+								plus.webview.currentWebview().close();
+								/*setTimeout(function(){
+									
+								},500);*/
+					     	}
+					    },'json'
+					);
+				});
+				function wrongInput(obj,str){
+					obj.parentNode.style.color = 'red';
+					mui.toast(str);
+				}
+				function fixed(obj){
+					obj.parentNode.style.color = 'black';
+				}
+			});
+			
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav register-nav">
+			<h3 class="mui-title register-nav-text">登录</h3>
+			<button class="mui-action-back mui-btn mui-btn-link mui-btn-nav mui-pull-left register-nav-text register-nav-btn">
+				<span class="mui-icon mui-icon-left-nav"></span> 返回
+			</button>
+			<button id="nav-reg" class="mui-btn mui-btn-link mui-btn-nav mui-pull-right register-nav-text register-nav-btn">
+				<span class="register-nav-btn-border">注册</span>
+			</button>
+		</header>
+		<div class="mui-content public-white-bg">
+			<div class="login-content-logo">
+				<p><img id="avatar" src="../images/avatar_default.jpg" alt="" /></p>
+			</div>
+			<div class="mui-card login-list-box">
+				<div class="mui-input-row login-input-border">
+					<label><img src="../images/username.jpg" alt="" /></label>
+					<input id="phoneNo" type="text" class="mui-input-clear login-input" placeholder="手机号/会员名">
+				</div>
+				<div class="mui-input-row public-position-relative">
+					<label><img src="../images/password.jpg" alt="" /></label>
+					<input id="password" type="password" class="mui-input-clear login-password" placeholder="金城家教登录密码">
+				</div>
+			</div>
+			<div class="login-button">
+				<button id="login" type="button" class="mui-btn-block login-button-style">登录</button>
+			</div>
+			<p>
+				<div class="public-float-left login-taobao">
+					<h6>其他方式登录</h6></div>
+				<div id="login-forget" class="public-float-right login-forget">
+					<h6>忘记密码？</h6></div>
+			</p>
+			<div id="login-register" class="login-register">
+				<p>
+					<button id="register" type="button" class="mui-btn mui-btn-outlined login-register-btn">
+						注册
+					</button>
+				</p>
+
+			</div>
+		</div>
+	</body>
+
+</html>

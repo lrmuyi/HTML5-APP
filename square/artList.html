@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+    	pullRefresh : { 
+	        container:"#refreshDiv",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等    
+	        down : {
+	            contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容 
+	            callback : pullDown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	        },
+	        up : { 
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容 
+            contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容； 
+            callback : pullUp //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据； 
+        	} }
+		});
+		mui.plusReady(function(){
+			var artList = document.getElementById('artList');
+			artList.addEventListener('tap',function(){
+				//可以传值过去
+				openPage('articleNav.html');
+			});
+		});
+		function pullDown(){
+			//以下代码保留
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    	console.log(data);
+			    	alert('12');
+			    },'json' 
+			);*/
+			mui.alert('下拉刷新');
+			//隐藏下拉刷新字样。。
+			mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh();
+
+		}
+		function pullUp(){
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    },'json' 
+			);*/
+			mui.alert('上拉加载');
+			//为true不加载重复数据，为false则无限加载
+			this.endPullupToRefresh(false); 
+		}
+    </script>
+    <style>
+    html,body {
+				background-color: #efeff4;
+			}
+			
+		.mui-control-content {
+			background-color: white;
+		}
+		.mui-control-content .mui-loading {
+			margin-top: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="refreshDiv" class="mui-content mui-scroll-wrapper"> 
+    		<div class="mui-scroll">
+	   			<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+	   				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img src="../images/alipay.jpg" />
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix artlist-header-title">
+									<span class="artlist">总讨论：</span>
+									<span class="artlist-header-number">2123</span>
+								</div>
+								<p class="artlist-header-desc">
+									子版块：初中、高中、其他
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+	   			</ul>
+	   			<div class="public-empty-row-s"></div>
+	   			<ul id="artList" class="mui-table-view">
+	   				<li class="mui-table-view-cell mui-grid-view artlist-tab-box">
+	   					<span class="mui-col-xs-4 artlist-tab-btn artlist-tab-btn-active">
+	   						初中
+	   					</span>
+	   					<span class="mui-col-xs-4 artlist-tab-btn">
+	   						高中
+	   					</span>
+	   					<span class="mui-col-xs-4 artlist-tab-btn btn-right-border">
+	   						其他
+	   					</span>
+	   				</li>
+	   				<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title posts-title-highlight">
+							<!--标题不超过30字-->
+							<span>明天10点，请大家帮忙做一个很重要的投票！明天10点，请大家帮忙<span class="posts-tag">顶</span></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">任意</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="posts-title posts-title-img posts-title-highlight">
+							<!--标题不超过30字-->
+							<span>明天10点，请大家帮忙做一个很重要的投票！明天10点，请大家帮忙<span class="posts-tag">顶</span></span>
+							<span><img src="../images/cbd.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">任意</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>手机随手拍！春天的味道<span class="posts-tag">精1</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="../images/avatar-BG.jpg"/></span>
+							<span><img src="../images/mien1.jpg"/></span>
+							<span><img src="../images/mien2.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">任意</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>明天10点，请大家帮忙做一个很重要的投票！明天10点，请大家帮忙<span class="posts-tag">精1</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="../images/avatar-BG.jpg"/></span>
+							<span><img src="../images/mien1.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">任意</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>简简单单才是真的好！<span class="posts-tag">精1</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="../images/avatar-BG.jpg"/></span>
+							<span><img src="../images/mien1.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="../images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">任意</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+	   			</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

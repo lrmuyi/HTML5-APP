@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/common.js" ></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/main.style.css" />
+    <link rel="stylesheet" href="css/iconfont.css" />
+    <script type="text/javascript" charset="utf-8"> 
+      	mui.init();
+      	mui.plusReady(function(){
+
+      		var oAvatar = document.getElementById("avatar");
+      		var oUserban = document.getElementById("username");
+      		var oScoreban = document.getElementById("userScore");
+      		var oUsername = oUserban.getElementsByTagName('span')[0];
+      		var oMyTech = document.getElementById('myTECH');
+      		var oConcern = document.getElementById('concern');
+      		var oOrder = document.getElementById('order');
+      		var oWallet = document.getElementById('wallet');
+      		var oRecommend = document.getElementById("recommend");
+      		
+      		var oFeedback = document.getElementById('feedback');
+      		var oHelp = document.getElementById('help');
+      		var oSetting = document.getElementById('setting');
+      		var aScore = oScoreban.getElementsByTagName('span');
+      		var myTechNum = oMyTech.getElementsByClassName('my-home-btn-num')[0];
+      		var concernNum = oConcern.getElementsByClassName('my-home-btn-num')[0];
+      		var oOrderBadge = oOrder.getElementsByTagName('a')[0];
+			var oRecBadge = oRecommend.getElementsByTagName('a')[0];
+			var request_url = localStorage.getItem('request_url');
+			var phone = localStorage.getItem('phone');
+			checkLogin(0);
+
+			 
+			oAvatar.addEventListener('tap',function(){
+				var str = '';
+				var wvs=plus.webview.all();
+				for(var i in wvs){
+					str += wvs[i].id + "\r\n";
+					
+				}
+
+			});
+
+			
+      		window.addEventListener('onload',function(){
+      			window.removeEventListener('touchstart',goLogin);
+      			fillData(); 
+      		});
+				 
+      		if(localStorage.getItem('login') == 0){
+				window.addEventListener('touchstart',goLogin);
+				return false;
+      		} 
+      			
+      		fillData();
+      		function fillData(){
+      			oOrder.addEventListener('tap',function(){
+//    			openPage('subPages/orderListNav.html','orderList',0,0,'pop-in','200',{'title':'orderList'});
+      			openPage('Personal/orderList.html','orderList');
+	      		});
+	      		oWallet.addEventListener('tap',function(){
+	      			openPage('Personal/myWallet.html','mywallet');
+	      		});
+	      		
+	      		oFeedback.addEventListener('tap',function(){
+	      			openPage('personal/feedback.html');
+	      		});
+	      		oHelp.addEventListener('tap',function(){
+	      			openPage('personal/help.html');
+	      		});
+	      		oSetting.addEventListener('tap',function(){
+	      			openPage('personal/setting.html');
+	      		});
+	      		
+	      		
+	      		mui.post(request_url + 'Home/Indentify/getdata',{ 
+	      			phone_data:phone
+	      		},function(data){
+	      				for (var a in data) {
+	      					oUsername.innerHTML = data[a].pickname;
+	      					oAvatar.src = 'images/logo.jpg';	
+	      					if (data[a].recommend == 1) {
+	      						 data[a].recommend = 'NEW';
+	      					} else{
+	      						data[a].recommend = null;
+	      					}
+	      					aScore[0].innerHTML = data[a].credit; 
+	      					aScore[1].innerHTML = data[a].score;
+	      					myTechNum.innerHTML = data[a].mytec; 
+	      					concernNum.innerHTML = data[a].myfllow;
+	      					var badgeSpan = document.createElement('span');
+				      		var badgeText = document.createElement('span');
+				      		badgeSpan.className = 'my-list-desc';
+				      		badgeText.className = 'mui-badge mui-badge-danger public-badge-text';
+							badgeText.innerHTML = '待评价×'+data[a].stay_evaluate;
+				      		badgeSpan.appendChild(badgeText);
+				      		oOrderBadge.appendChild(badgeSpan);
+				      		 
+				      		//<span class="my-list-desc">NEW<label class="iconfont icon-dian public-dot-red"></label></span>
+				      		var recBadge = document.createElement('span');
+				      		var recText = document.createElement('label');
+				      		recBadge.className = 'my-list-desc';
+				      		recBadge.innerHTML = data[a].recommend;
+				      		recText.className = 'iconfont icon-dian public-dot-red';
+				      		recBadge.appendChild(recText);
+				      		oRecBadge.appendChild(recBadge);
+	      				}
+	      		},'json');
+	      		
+	      		//<span class="my-list-desc"><span class="mui-badge mui-badge-danger public-badge-text">待评价×45</span></span>
+	      		
+      		}
+      		goLogin();
+      		function goLogin(){
+  				mui.toast('请登录');
+  				openPage('_www/public/login.html','login');
+  			}
+      	});
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<ul class="mui-table-view public-clear-margin">
+			<li class="my-home-profile">
+				<div class="my-home-avatar"><img id="avatar" src="images/avatar_default.jpg" /></div>
+				<div class="my-home-pro-text">
+					<p id="username" class="my-home-pro-pickname">&nbsp;&nbsp;&nbsp;&nbsp;<span>未登录</span><label class="mui-icon mui-icon-arrowright my-home-pro-arrow"></label></p>
+					<p id="userScore" class="my-home-pro-scores">我的信用度：<span>-</span>&nbsp;&nbsp;|&nbsp;&nbsp;我的积分：<span>-</span></p>
+				</div>
+			</li>
+		</ul>
+		<div class="profile-cover-header">
+			<!--左上角图标文字
+            	<span class="profile-cover-topLeft"><label class="iconfont icon-guanzhu1"></label></span>
+            -->
+	  		<span class="profile-cover-topRight"><label class="iconfont icon-kechengbiao"></label></span>
+	    </div>
+		<ul class="mui-table-view mui-grid-view my-pro-btn-view">
+			<li id="myTECH" class="mui-table-view-cell mui-col-xs-6 my-pro-btn">
+				<div id="" class="my-home-btn-center">
+					<span class="my-home-btn-img"><img src="images/1.jpg"/></span>
+					<span class="my-home-btn-title">
+						<span>我的老师</span>
+						<div class="my-home-btn-num">-</div>
+					</span>
+				</div>
+			</li>
+			<li id="concern" class="mui-table-view-cell mui-col-xs-6 my-pro-btn">
+				<div class="my-home-btn-center my-pro-btn-line">
+					<span class="my-home-btn-img"><img src="images/2.jpg"/></span>
+					<span class="my-home-btn-title">
+						<span>我关注的</span>
+						<div class="my-home-btn-num">-</div>
+					</span>
+				</div>
+			</li>
+		</ul>
+		<div class="public-empty-row"></div>
+		<ul class="mui-table-view">
+			<li id="order" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-dingdan public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">全部订单</span>
+					</div>
+					<!--<span class="my-list-desc"><span class="mui-badge mui-badge-danger public-badge-text">待评价×45</span></span>-->
+				</a>
+			</li>
+		</ul>
+		<div class="public-empty-row"></div>
+		<ul class="mui-table-view">
+			<li id="coupon" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-quan public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">奖学券</span>
+					</div>
+					<span class="my-list-desc"> </span>
+				</a>
+			</li>
+			<li id="wallet" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-qianbao public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">我的钱包</span>
+					</div>
+					<span class="my-list-desc"> </span>
+				</a>
+			</li>
+		</ul>
+		<div class="public-empty-row"></div>
+		<ul class="mui-table-view">
+			<li id="invite" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-fenxiang1 public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">邀请好友</span>
+					</div>
+					<span class="my-list-desc"></span>
+				</a>
+			</li>
+			<li id="recommend" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-biaoxing public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">每日推荐</span>
+					</div>
+					<!--<span class="my-list-desc">NEW<label class="iconfont icon-dian public-dot-red"></label></span>-->
+				</a>
+			</li>
+			<li id="recent" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-chexiao public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">最近浏览</span>
+					</div>
+					<span class="my-list-desc"></span>
+				</a>
+			</li>
+		</ul>
+		<div class="public-empty-row"></div>
+		<ul class="mui-table-view">
+			<li id="feedback" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-fankui public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">意见反馈</span>
+					</div>
+					<span class="my-list-desc"></span>
+				</a>
+			</li>
+			<li id="help" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-wenhao public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">使用帮助</span>
+					</div>
+					<span class="my-list-desc"></span>
+				</a>
+			</li>
+			<li id="setting" class="mui-table-view-cell">
+				<a href="javascript:;" class="mui-navigate-right my-list-cell">
+					<div class="iconfont icon-shezhi public-icon my-list-icon"></div>
+					<div class="my-list-text-small">
+						<span class="my-list-title">设置</span>
+					</div>
+					<span class="my-list-desc"></span>
+				</a>
+			</li>
+		</ul>
+		<div class="public-empty-row"></div>
+	</div>
+</body>
+</html>

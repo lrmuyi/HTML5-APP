@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<script src="../js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="../js/raphael.js"></script>
+		<script type="text/javascript" src="../js/jquery.classyled.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="../css/personal.style.css" />
+		<link rel="stylesheet" href="../css/public.style.css" />
+		<link rel="stylesheet" type="text/css" href="../css/iconfont.css" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+			mui.plusReady(function(){
+				var iTCH = document.getElementById('itch');
+				
+				iTCH.addEventListener('tap',function(){
+					openPage('../homeTCH/iTCH.html');
+				});
+				
+			});
+		</script>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-table-view orderSheet-wrapper">
+				<div id="itch" class="mui-table-view-cell orderSheet-avatar-box">
+					<div class="orderSheet-avatar">
+						<img src="../images/TCHAvatar.jpg" />
+						<span class="iconfont icon-nvxing1"></span>
+					</div>
+					<div class="iOrder-avatar">
+						<div class="iOrder-avatar-name">
+							欧阳老师
+						</div>
+						<div class="orderSheet-avatar-desc">
+							<em style="font-size: 12px">从教5年&nbsp;&nbsp;年龄：27</em>
+						</div>
+						<div class="orderSheet-avatar-desc">
+							<!--此处320分辨率下不得超过14个汉字-->
+							<em style="font-size: 12px">主讲：数学、物理</em>
+						</div>
+					</div>
+					<div class="orderSheet-avatar-item mui-pull-left">
+						<span class="mui-icon mui-icon-phone-filled order-tech-tel">18893458694</span>
+
+					</div>
+					<div class="orderSheet-avatar-way">
+						<span class="iconfont icon-haoping">100%</span>
+					</div>
+				</div>
+			</div>
+			<div class="public-empty-row"></div>
+			<div class="mui-table-view">
+				<div class="mui-table-view-cell order-tech-addr order-row-banned">
+					<span class="public-inrow-title"></span>
+					<span class="mui-icon mui-icon-location-filled order-addr-icon"></span>
+					<label>兰州市七里河区瓜州路287号-3单元301兰州市七里河区瓜州路287号-3单元301</label>
+				</div>
+			</div>
+
+			<div class="public-empty-row"></div>
+			<div class="mui-table-view">
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title">科目</span><span class="public-inrow-content mui-pull-right order-row-banned">七年级数学</span>
+				</div>
+				<div class="mui-table-view-cell">
+					<div class="public-inrow-title mui-pull-left">
+						报名课时数
+					</div>
+					<div class="mui-numbox mui-pull-right order-numbox" data-numbox-step='5' data-numbox-min='5' data-numbox-max='50'>
+						<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+						<input class="mui-input-numbox" type="number" />
+						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+					</div>
+				</div>
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title">每周上课时间</span><span class="public-inrow-content mui-pull-right order-row-banned">周三 早上 10:00~12:00</span>
+				</div>
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title orderSheet-schedule-title">距离上课还有</span><span class="public-inrow-content orderSheet-schedule">
+					 <div class="led3 autosize mui-pull-right"></div>
+				</span>
+				</div>
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title orderSheet-schedule-title">已报名人数</span>
+					
+				<span class="public-inrow-content public-text-red orderSheet-price mui-pull-right">4/8</span>
+				</div>
+			</div>
+
+			<div class="public-empty-row"></div>
+			<div class="mui-table-view">
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title">课程原价</span>
+					<del class="public-inrow-content mui-pull-right order-row-banned">￥220.00/小时/人</del>
+				</div>
+				<div class="mui-table-view-cell">
+					<div class="orderSheet-price-box">
+						<span class="public-inrow-title orderSheet-schedule-title">课程优惠</span>
+						<span class="public-inrow-content public-text-red orderSheet-price mui-pull-right">低价拼单折扣</span>
+					</div>
+				</div>
+				<div class="mui-table-view-cell">
+					<span class="public-inrow-title ">折后价格</span>
+					<span class="public-inrow-content public-text-red mui-pull-right">￥120.00/小时/人</span>
+				</div>
+				
+				<div class="mui-table-view-cell">
+					<div class="public-inrow-title mui-pull-left">
+						本次报名人数
+					</div>
+					<div class="mui-numbox mui-pull-right order-numbox" data-numbox-min='1' data-numbox-max='4'>
+						<button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
+						<input class="mui-input-numbox" type="number" />
+						<button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
+					</div>
+				</div>
+				
+			</div>
+			<div class="public-empty-row"></div>
+			<div class="mui-table-view">
+				<div class="mui-table-view-cell">
+					<div class="orderSheet-price-box">
+						<span class="public-inrow-title orderSheet-schedule-title">本订单应支付</span>
+						<span class="public-inrow-content orderSheet-price mui-pull-right public-text-red">￥<span>600.00</span>元</span>
+					</div>
+				</div>
+			</div>
+			<div class="public-empty-row"></div>
+
+		</div>
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('.led3').ClassyLED({
+					type: 'countdown',
+					format: 'ddd天hh时mm分ss秒',
+					countTo: '2016:5:2',
+					color: 'red',
+					backgroundColor: '#e3e3e3',
+					size: 1.2,
+					fontType: 1
+				});
+			});
+		</script>
+
+	</body>
+
+</html>

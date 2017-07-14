@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script type="text/javascript" src="js/common.js" ></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link href="css/main.style.css" rel="stylesheet" /> 
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <script type="text/javascript" charset="utf-8">
+	    mui.init();
+	    //    		地理位置
+      		
+
+
+      		
+      	mui.plusReady(function(){
+      		
+      		plus.navigator.closeSplashscreen();
+
+      		var oUl = document.getElementById('indexUl');
+      		var aBtn = [];
+      		var aCover = oUl.getElementsByClassName('btn-cover');
+      		var aCircle = oUl.getElementsByClassName('btn-cover-circle');
+      		for(var i=0;i<aCover.length;i++){
+      			aBtn.push(aCover[i].parentNode);
+      			aBtn[i].index = i;
+      			aBtn[i].addEventListener('touchstart',function(ev){
+      				
+      				aCover[this.index].style.display = 'block'; 
+      				/*var clientX = ev.changedTouches[0].clientX - getLeft(aBtn[this.index]);
+      				var clientY = ev.changedTouches[0].clientY - getTop(aBtn[this.index]);
+      				var clientR = getLeft(aBtn[this.index]) + aBtn[this.index].offsetWidth - ev.changedTouches[0].clientX;
+      				var radii = clientX > clientR ? clientX : clientR;
+      				aCircle[this.index].style.left = clientX - 50 + 'px';
+      				aCircle[this.index].style.top = clientY - 50 + 'px';*/
+      				
+      				/*doMove(aCircle[this.index],'left',clientX-50,clientX,1,2);
+					doMove(aCircle[this.index],'top',clientY-50,clientY,1,2);
+      				doMove(aCircle[this.index],'width',0,100,2,2);
+      				doMove(aCircle[this.index],'height',0,100,2,2);*/
+      				
+      			});
+      			aBtn[i].addEventListener('touchend',function(){
+      				aCover[this.index].style.display = 'none'; 
+      			});
+      		}
+      		aBtn[0].addEventListener('touchend',function(){
+      			openPage('./homeTCH/menuList.html','menuList',0,0);
+      		});
+      		aBtn[1].addEventListener('touchend',function(){
+      			openPage('./public/shake.html','shake',0,0);
+      		});
+      		aBtn[2].addEventListener('touchend',function(){
+      			openPage('./homeTCH/goDutchListNav.html','goDutchListNav',0,0);
+      		});
+      		var gallery = mui('.mui-slider');
+			gallery.slider({
+			  interval:5000//自动轮播周期，若为0则不自动播放，默认为0；
+			});
+			 
+			//document.querySelector('.mui-slider').addEventListener('slide', function(event) {
+			  //注意slideNumber是从0开始的；
+			  //切换一张图片后动作
+			//});
+			//注意:如果ajax获得图片后，需要在写入图片以后，需要从新调用一下
+			//gallery.slider();
+			
+			
+
+      			plus.geolocation.getCurrentPosition( geoInfo, function ( e ) {
+      				
+       					 alert( "获取位置信息失败："+e.message );
+      			});
+      			});
+
+      			
+			function geoInfo(position){
+
+				
+			    var timeflag = position.timestamp;//获取到地理位置信息的时间戳；一个毫秒数；
+			    var codns = position.coords;//获取地理坐标信息；
+			    var lat = codns.latitude;//获取到当前位置的纬度；
+			    var longt = codns.longitude;//获取到当前位置的经度
+			    var alt = codns.altitude;//获取到当前位置的海拔信息；
+			    var accu = codns.accuracy;//地理坐标信息精确度信息；
+			    var altAcc = codns.altitudeAccuracy;//获取海拔信息的精确度；
+			    var head = codns.heading;//获取设备的移动方向；
+			    var sped = codns.speed;//获取设备的移动速度；
+			    var baidu_map = "http://api.map.baidu.com/geocoder/v2/?output=json&ak=BFd9490df8a776482552006c538d6b27&location="+lat+','+longt;
+			    mui.get(baidu_map,{ //请求的地址
+			    },function(data){ //服务器返回响应，根据响应结果，分析是否登录成功； ... 
+					var iCity = document.getElementById('city');
+			        var result = data['result'].addressComponent;                       
+			        // 国家
+			        var country = result['country'];
+			        //城市
+			        var city = result['city'];
+			        //地址
+			        var address = result['province'] + result['district'] + result['street'];
+			        //data 有很多信息，大家如果需要可以for in出来看下
+			     		iCity.innerHTML = city;
+			        },'json');
+			}
+			
+//				mui.toast('其他城市正在努力开拓中，敬请期待~');
+      	//禁止上下滚动
+      	document.addEventListener('touchstart',function(e){e.preventDefault();});
+    </script>
+    <style type="text/css">
+    	html,body{height:100%;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav index-header">
+		<span class="mui-icon mui-icon-location mui-pull-left index-nav-btn-left"><label id="city"></label></span>
+		<h1 class="mui-title header-title">金城家教</h1>
+		<span class="mui-icon mui-icon-bars mui-pull-right index-nav-btn-right"></span>
+	</header>
+	<div class="mui-content mui-scroll-wrapper index-content">
+	    	<div id="slider" class="mui-slider index-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="./images/yuantiao.jpg">
+					</a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./images/shuijiao.jpg">
+					</a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./images/muwu.jpg">
+					</a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./images/cbd.jpg">
+					</a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#">
+						<img src="./images/yuantiao.jpg">
+					</a>
+				</div>
+				<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#">
+						<img src="./images/shuijiao.jpg">
+					</a>
+				</div>
+			</div>
+			<!--右下角页面提示圆点-->
+			<div class="mui-slider-indicator mui-text-right">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+		 		<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<div class="index-content-bottom">
+			<ul id="indexUl" class="mui-table-view mui-grid-view index-content-ul">
+				<li class="mui-table-view-cell mui-col-xs-5 index-btn">
+					<div class="index-btn-left index-btn-1"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-xuexiba0220 index-btn-icon"><span class="index-btn-text">找家教</span></div></div>
+					<div class="index-btn-left index-btn-2"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-zuoye2 index-btn-icon index-btn-icon-left"><span class="index-btn-text">写作业</span></div></div>
+				</li>
+				<li class="mui-table-view-cell mui-col-xs-7 index-btn index-btn-right">
+					<div class="index-btn-right-cell index-btn-3"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-duorenyonghu1 index-btn-icon-right mui-table-view-cell"><span class="mui-table-view-cell index-btn-text-right">聚划算</span></div></div>
+					<div class="index-btn-right-cell index-btn-4"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-wendang mui-table-view-cell index-btn-icon-right index-btn-icon-rs"><span class="mui-table-view-cell index-btn-text-right">查资料</span></div></div>
+					<div class="index-btn-right-cell index-btn-5"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-question index-btn-icon-small"><span class="index-btn-text index-btn-text-small">问问题</span></div></div>
+					<div class="index-btn-right-cell index-btn-right-gap index-btn-6"><div class="btn-cover"><div class="btn-cover-circle"></div></div><div class="mui-icon iconfont icon-yinxingqia index-btn-icon-small"><span class="index-btn-text index-btn-text-small">课程表</span></div></div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+
+</html>

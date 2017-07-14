@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+    	pullRefresh : { 
+	        container:"#refreshDiv",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等    
+	        down : {
+	            contentdown : "下拉刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容 
+	            contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容 
+	            callback : pullDown //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+	        },
+	        up : { 
+            contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容 
+            contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容； 
+            callback : pullUp //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据； 
+        	} }
+		});
+		mui.plusReady(function(){
+			var ibtn1 = document.getElementById('btn1');
+			ibtn1.addEventListener('tap',function(){
+				openPage('square/artListNav.html');
+			});
+		});
+		mui.plusReady(function(){
+			var ibtn2 = document.getElementById('btn2');
+			ibtn2.addEventListener('tap',function(){
+				openPage('square/questionNav.html');
+			});
+		});
+		function pullDown(){
+			//以下代码保留
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    	console.log(data);
+			    	alert('12');
+			    },'json' 
+			);*/
+			mui.alert('下拉刷新');
+			//隐藏下拉刷新字样。。
+			mui('#pullrefreshContainer').pullRefresh().endPulldownToRefresh();
+
+		}
+		function pullUp(){
+			/*mui.get('list.html',{ //请求接口地址
+			    state:'list'   // 参数  键 ：值
+			    },function(data){ // data为服务器端返回数据
+			    //获得服务器响应 ... 
+			    },'json' 
+			);*/
+			mui.alert('上拉加载');
+			//为true不加载重复数据，为false则无限加载
+			this.endPullupToRefresh(false); 
+		}
+    </script>
+</head>
+<body>
+	<div class="mui-content">
+		<div id="refreshDiv" class="mui-content mui-scroll-wrapper"> 
+    		<div class="mui-scroll">
+				<div id="slider" class="mui-slider">
+					<div class="mui-slider-group mui-slider-loop">
+						<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/square1.jpg">
+								<p class="mui-slider-title">随时随地，召唤老师</p>
+							</a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/square3.jpg">
+								<p class="mui-slider-title">幸福就是妈妈再也不用担心我的学习了</p>
+							</a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/square2.jpg">
+								<p class="mui-slider-title">专门为孩子量身定做的老师</p>
+							</a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/square4.jpg">
+								<p class="mui-slider-title">金城家教，孩子的第二课堂</p>
+							</a>
+						</div>
+						<div class="mui-slider-item">
+							<a href="#">
+								<img src="images/square1.jpg">
+								<p class="mui-slider-title">随时随地，召唤老师</p>
+							</a>
+						</div>
+						<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+						<div class="mui-slider-item mui-slider-item-duplicate">
+							<a href="#">
+								<img src="images/square3.jpg">
+								<p class="mui-slider-title">孩子的第二课堂</p>
+							</a>
+						</div>
+					</div>
+					<div class="mui-slider-indicator mui-text-right">
+						<div class="mui-indicator mui-active"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+						<div class="mui-indicator"></div>
+					</div>
+				</div>
+				<div class="mui-table-view index-btn">
+					<ul id="index-btns" class="mui-table-view mui-grid-view index-btn-ul">
+						
+				        <li id="btn1" class="mui-table-view-cell mui-col-xs-6 index-btn-li index-btn-left-border">
+				            <div class="index-btn-box">
+				                <img src="./images/1.jpg">
+				                <div class="index-btn-title index-btn-green">学习资料</div>
+				            	<span class="index-btn-desc">金城教师推荐资料</span>
+				            </div>
+				        </li>
+				        <li id="btn2" class="mui-table-view-cell mui-col-xs-6 index-btn-li index-btn-left-border">
+				            <div class="index-btn-box index-btn-orange">
+				                <img src="./images/2.jpg">
+				                <div class="index-btn-title ">有问必答</div>
+				            	<span class="index-btn-desc">网友互帮互助</span>
+				            </div>
+				        </li>
+				        <li class="mui-table-view-cell mui-col-xs-6 index-btn-li index-btn-left-border">
+				            <div class="index-btn-box">
+				            	<img src="./images/3.jpg">
+				                <div class="index-btn-title index-btn-pink">谈天说地</div>
+				            	<span class="index-btn-desc">任何想说的</span>
+				            </div>
+				        </li>
+				        <li class="mui-table-view-cell mui-col-xs-6 index-btn-li">
+				            <div class="index-btn-box">
+				                <img src="./images/4.jpg">
+				                <div class="index-btn-title index-btn-blue">需求发布</div>
+				            	<span class="index-btn-desc">找不到老师来这里</span>
+				            </div>
+				        </li>
+				    </ul>
+				</div>
+				<div class="public-empty-row-s">
+					
+				</div>
+				<div class="square-list">
+					<ul id="artList" class="mui-table-view">
+	   				<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>星期六，公司举办亲子游活动，请收到邀请函的家长带小孩一同前来参与活动！<span class="posts-tag">精1</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="images/mien5.jpg"/></span>
+							<span><img src="images/mien2.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="images/avatar_demo6.jpg" alt="" />
+								<span class="posts-brief-name">彩云</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">4322</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					<li class="mui-table-view-cell">
+						<div class="posts-title posts-title-img posts-title-highlight">
+							<!--标题不超过30字-->
+							<span>好消息！金城家教又聘到一个金牌老师，好多家长都提前预约了<span class="posts-tag">顶</span></span>
+							<span><img src="images/cbd.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="images/avatar_demo.jpg" alt="" />
+								<span class="posts-brief-name">花千骨</span><span class="posts-brief-timestamp">2小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1364</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>132</span>
+							</div>
+						</div>
+					</li>
+	   				<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title posts-title-highlight">
+							<!--标题不超过30字-->
+							<span>明天10点，请大家帮忙做一个很重要的投票！明天10点，请大家帮忙<span class="posts-tag">顶</span></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="images/avatar_demo3.jpg" alt="" />
+								<span class="posts-brief-name">紫萱</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">8734</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>432</span>
+							</div>
+						</div>
+					</li>
+					
+					
+					<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>金城家教是一个能为孩子量身定做老师的平台<span class="posts-tag">精2</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="images/avatar-BG.jpg"/></span>
+							<span><img src="images/mien1.jpg"/></span>
+							<span><img src="images/mien2.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="images/avatar_demo4.jpg" alt="" />
+								<span class="posts-brief-name">任道远</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">1222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					
+					<li class="mui-table-view-cell">
+						<div class="mui-ellipsis-2 posts-title">
+							<!--标题不超过30字-->
+							<span>简简单单的学习才是最好的学习方法<span class="posts-tag">精1</span></span>
+						</div>
+						<div class="posts-img-preview">
+							<span><img src="images/mien3.jpg"/></span>
+							<span><img src="images/mien1.jpg"/></span>
+						</div>
+						<div class="posts-brief">
+							<div class="posts-brief-left">
+								<img src="images/avatar_demo7.jpg" alt="" />
+								<span class="posts-brief-name">挖掘机</span><span class="posts-brief-timestamp">1小时前</span>
+							</div>
+							<div class="posts-brief-right">
+								<span class="mui-icon mui-icon-eye posts-brief-icon1"></span><span class="posts-brief-number">3222</span>
+								<span class="mui-icon mui-icon-chatbubble-filled posts-brief-icon2"></span><span>22</span>
+							</div>
+						</div>
+					</li>
+					
+	   			</ul>
+					
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

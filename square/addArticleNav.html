@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script src="../js/H5plus.js"></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/square.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({ 
+      		swipeBack: false,
+		    subpages:[{ 
+		    url:'addArticle.html',//下拉刷新内容页面地址 
+		    id:'addArticle',//内容页面标志
+		     styles:{ top:'0px',
+		     		  bottom:'50px'//内容页面顶部位置,需根据实际页面布局计算，若使用标准mui导航，顶部默认为48px； .....//其它参数定义
+		     }, extras:{}
+		    }] 
+		});
+		var main,emojiBox;
+		var emojiOpen = 0;
+		mui.plusReady(function(){
+			var backBtn = document.getElementById('backBtn');
+			var emojiBtn = document.getElementById('emoji');
+			var nav = document.getElementById('tabbar-nav');
+			var inputPage = plus.webview.getWebviewById('addArticle');
+			
+			window.addEventListener('showEmoji',function(){
+				var emoji = document.getElementById('emoji');
+				emoji.style.display = 'table-cell';
+			});
+			window.addEventListener('noEmoji',function(){
+				var emoji = document.getElementById('emoji');
+				emoji.style.display = 'none';
+			});
+			
+			main = plus.webview.currentWebview();
+			//setTimeout的目的是等待窗体动画结束后，再执行create webview操作，避免资源竞争，导致窗口动画不流畅；
+			setTimeout(function () {
+				emojiBox = mui.preload({
+					id: 'emoji',
+					url: 'emoji.html',
+					styles: {
+						bottom: "0px",
+						height: '200px',
+						zindex: 9997
+					}
+				});
+			},300);
+			emojiBtn.addEventListener('tap',function(){
+				mui.fire(inputPage,'textareaBlur');
+				main.setStyle({
+					top: '-200px',
+					transition: {
+						duration: 150
+					}
+				});
+				emojiBox.show();
+				emojiOpen = 1;
+			});
+			
+			window.addEventListener('closeEmojiEvent',function(){
+				closeEmoji();
+			});
+			
+			function closeEmoji(){
+				if(emojiOpen === 1){
+					main.setStyle({
+						top: '0px',
+						transition: {
+							duration: 150
+						}
+					});
+					emojiOpen = 0;
+					setTimeout(function(){
+						plus.webview.getWebviewById('emoji').hide();
+					},150);
+				}
+			}
+			
+			document.getElementById("picture-btn").addEventListener('tap',function () {
+				var btnArray = [{title:"拍照"},{title:"从相册中选择照片"}];
+				plus.nativeUI.actionSheet( {
+					title:"选择照片",
+					cancel:"取消",
+					buttons:btnArray
+				}, function(e){
+					var index = e.index;
+					switch (index){
+						case 0:
+							break;
+						case 1:
+							getImage();
+							//mui.fire(inputPage,'resImg',{url:getImage()});
+							break;
+						case 2:
+							galleryImg();
+							break;
+					}
+				} );
+			});
+			
+			plus.webview.currentWebview().addEventListener( "popGesture", function(e){
+				if(e.type=="start"){
+					closeImg();
+				}
+			}, false );
+		});
+		function fireImage(path){
+			var targetPage = plus.webview.getWebviewById('addArticle');
+			mui.fire(targetPage,'resImg',{url:path});
+		}
+		function getImage(){
+			var cmr = plus.camera.getCamera();
+			
+			cmr.captureImage( function ( path ) {
+				plus.gallery.save( path );
+				fireImage("file://" + plus.io.convertLocalFileSystemURL(path));
+				console.log( "照片已成功保存到系统相册" );
+			}, function ( e ) {
+				console.log( "取消拍照" );
+			}, {filename:"_doc/gallery/",index:1} );
+		}
+		function galleryImg() {
+			// 从相册中选择图片
+			//console.log("从相册中选择图片:");
+		    plus.gallery.pick( function(path){
+		    	fireImage(path);
+		        //showImg( path );
+		        //createItem(path);
+		    }, function ( e ) {
+		    	console.log( "取消选择图片" );
+		    }, {filter:"image"} );
+		}
+		function galleryImgs(){
+			// 从相册中选择图片
+			//console.log("从相册中选择多张图片:");
+		    plus.gallery.pick( function(e){
+		    	for(var i in e.files){
+			    	mui-alert(e.files[i]);
+		    	}
+		    }, function ( e ) {
+		    	console.log( "取消选择图片" );
+		    },{filter:"image",multiple:true});
+		}
+		function showImg( url ){
+			// 兼容以“file:”开头的情况
+			if(0!=url.indexOf("file://")){
+				url="file://"+url;
+			}
+			var _body_ = document.body;
+			var _div_ = document.createElement("div");
+			_div_.style.top="0px";
+			_div_.style.left="0px";
+			_div_.style.height="100%";
+			_div_.style.width="100%";
+			_div_.style.zIndex="99999";
+			_div_.style.position="fixed";
+			_div_.style.background="#ffffff";
+			_div_.id="imgShow";
+			_div_.onclick=closeImg;
+			var _img_=document.createElement("img");
+			_img_.src=url;
+			_img_.style.width="100%";
+			_body_.appendChild(_div_);
+			_div_.appendChild(_img_);
+		}
+		function closeImg(){
+			var trnode=document.getElementById("imgShow");
+			trnode&&trnode.parentNode.removeChild(trnode);
+		}
+		
+		var list=null,first=null;
+		document.addEventListener("DOMContentLoaded",function(){
+			list=document.getElementById("list");
+			first=document.getElementById("empty");
+		},false);
+		// 添加列表项
+		function createItem(path) {
+			var li = document.createElement("li");
+			li.className = "ditem";
+			li.innerHTML = '<span class="iplay"><font class="aname"></font><br/><font class="ainf"></font></span>';
+			li.setAttribute( "onclick", "displayMedia(this);" );
+			list.insertBefore( li, first.nextSibling );
+			var i = path.lastIndexOf("/");
+			if(i<0){
+				i = path.lastIndexOf("\\");
+			}
+			li.querySelector(".aname").innerText = path.substr(i+1);
+			li.querySelector(".ainf").innerText = path;
+			li.path = path;
+			// 设置空项不可见
+			first.style.display = "none";
+		}
+		// 清除列表记录
+		function cleanList() {
+			list.innerHTML = '<li id="empty" class="ditem-empty">无记录</li>';
+			empty = document.getElementById( "empty" );
+			// 删除音频文件
+			console.log( "清空选择照片记录：" );
+		}
+		// 返回后关闭图片显示
+		var _back=window.back;
+		window.back=function(){
+			closeImg();
+			_back();
+		};
+    </script>
+</head>
+<body>
+   <nav id="tabbar-nav" class="mui-bar mui-bar-tab posts-tabbar">
+   		<a id="emoji" class="mui-tab-item" href="#">
+	        <span class="iconfont icon-emojicommon mui-pull-left">
+	        </span>
+	    </a>
+	    <a class="mui-tab-item" href="#">
+	        <span id="picture-btn" class="mui-icon mui-icon-image mui-pull-right">
+	        </span>
+	    </a>
+	</nav>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../js/mui.min.js"></script>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <link href="../css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="../css/sub.style.css"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+      	mui.plusReady(function(){
+      		var aRow = document.getElementsByClassName('menu-row');
+      		var aImg = document.getElementsByTagName('img');
+      		var iWidth = document.body.offsetWidth;
+      		for(var i=0;i<aRow.length;i++){
+      			aRow[i].index = i;
+      			aImg[i].style.marginTop = (aRow[i].offsetHeight/2 - 55) + 'px';
+      			aRow[i].style.left = iWidth + 'px';
+      			aRow[0].addEventListener('tap',function(){
+      				openPage('./selectTCHNav.html');
+      			});
+      			aRow[1].addEventListener('tap',function(){
+      				openPage('../public/shake1.html');
+      			});
+      			aRow[2].addEventListener('tap',function(){
+      				openPage('../public/shake2.html');
+      			});
+      			aRow[3].addEventListener('tap',function(){
+      				openPage('./selectTCHNav.html');
+      			});
+      			aRow[4].addEventListener('tap',function(){
+      				openPage('./selectTCHNav.html');
+      			}); 
+      		}
+      		//显示条目运动
+      		var count = 0;
+      		var iTimer = setInterval(function(){
+      			if(count<aRow.length){
+      				doMove(aRow[count],'left',0,iWidth,20,1);
+      			}else{
+      				clearInterval(iTimer);
+      			}
+      			count++;
+      		},70);
+      	});
+    </script>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav common-header">
+		<span class="mui-icon mui-icon-left-nav mui-pull-left mui-action-back common-nav-btn-left"></span>
+		<h1 class="mui-title header-title">找家教</h1>
+	</header>
+	<div class="mui-content menu-content">
+		<div class="public-empty-row"></div>
+	    <div class="menu-row" style="left:666px"><div class="menu-row-icon"><img src="../images/jinpai.jpg"/></div><div class="menu-row-right "><p class="menu-row-header"><span class="menu-row-title">金牌家教</span><span class="menu-row-price"><span>180</span>元/小时</span></p><p class="menu-row-brief">点名指定您所中意的家教，金城家教推荐的星级金牌家教。给您最专业的服务</p></div><div class="mui-icon mui-icon-forward menu-row-arrow"></div></div>
+	    <div class="public-empty-row"></div>
+	    <div class="menu-row" style="left:666px"><div class="menu-row-icon"><img src="../images/suiji.jpg"/></div><div class="menu-row-right "><p class="menu-row-header"><span class="menu-row-title">随机家教</span><span class="menu-row-price"><span>140</span>元/小时</span></p><p class="menu-row-brief">以低廉的价格随机指派家教，挑选工作交给我们的云平台</p></div><div class="mui-icon mui-icon-forward menu-row-arrow"></div></div>
+		<div class="public-empty-row"></div>
+	    <div class="menu-row" style="left:666px"><div class="menu-row-icon"><img src="../images/zuoye.jpg"/></div><div class="menu-row-right "><p class="menu-row-header"><span class="menu-row-title">陪做作业</span><span class="menu-row-price"><span>60</span>元/小时</span></p><p class="menu-row-brief">随机挑选经验丰富的大学生家教陪您家孩子做作业，有效提高作业效率</p></div><div class="mui-icon mui-icon-forward menu-row-arrow"></div></div>
+		<div class="public-empty-row"></div>
+	    <div class="menu-row" style="left:666px"><div class="menu-row-icon"><img src="../images/zhiye.jpg"/></div><div class="menu-row-right "><p class="menu-row-header"><span class="menu-row-title">职业家教</span><span class="menu-row-price"><span>160</span>元/小时</span></p><p class="menu-row-brief">想提高职业技术水平？金城家教助你一臂之力！特推出成人职业学习家教。学习专业技术，快快来吧</p></div><div class="mui-icon mui-icon-forward menu-row-arrow"></div></div>
+		<div class="public-empty-row"></div>
+		<div class="menu-row" style="left:666px"><div class="menu-row-icon"><img src="../images/xuanshang.jpg"/></div><div class="menu-row-right "><p class="menu-row-header"><span class="menu-row-title">发布悬赏</span><span class="menu-row-price"><span>??</span>元/小时</span></p><p class="menu-row-brief">没有您要的种类？没关系，来试试悬赏吧</p></div><div class="mui-icon mui-icon-forward menu-row-arrow"></div></div>
+		<div class="public-empty-row"></div>
+	</div>
+</body>
+</html>

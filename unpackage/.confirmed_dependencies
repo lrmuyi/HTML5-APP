@@ -1,0 +1,646 @@
+{
+  "index.html": {
+    "resources": [
+      "css/main.style.css",
+      "images/cbd.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/shuijiao.jpg",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/common.js",
+      "fonts/iconfont.woff"
+    ],
+    "refer": [
+      "subpages/menuList.html",
+      "homeTCH/menuList.html",
+      "homeTCH/goDutchListNav.html",
+      "public/shake.html"
+    ]
+  },
+  "navigator.html": {
+    "resources": [
+      "index.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/main.style.css",
+      "js/common.js"
+    ],
+    "refer": [
+      "index.html",
+      "square.html",
+      "my.html",
+      "document.html",
+      "my-nav.html",
+      "message.html",
+      "schedule.html",
+      "msgLobby.html",
+      "squareNav.html"
+    ]
+  },
+  "square.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/mien2.jpg",
+      "images/mien1.jpg",
+      "images/3.jpg",
+      "images/avatar_demo.jpg",
+      "images/4.jpg",
+      "images/cbd.jpg",
+      "images/2.jpg",
+      "images/avatar-BG.jpg",
+      "images/muwu.jpg",
+      "images/yuantiao.jpg",
+      "images/1.jpg",
+      "images/shuijiao.jpg",
+      "fonts/mui.ttf",
+      "css/square.style.css",
+      "js/common.js"
+    ],
+    "refer": [
+      "square/artListNav.html"
+    ]
+  },
+  "my.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "images/2.jpg",
+      "images/avatar-BG.jpg",
+      "images/1.jpg",
+      "images/avatar_default.jpg",
+      "fonts/iconfont.ttf",
+      "css/main.style.css",
+      "css/iconfont.css",
+      "fonts/iconfont.woff",
+      "images/QRIcon.png"
+    ],
+    "refer": [
+      "register.html",
+      "login.html",
+      "Personal/myWallet.html",
+      "Personal/orderList.html"
+    ]
+  },
+  "register.html": {
+    "resources": [
+      "css/identify.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "login.html": {
+    "resources": [
+      "images/username.jpg",
+      "js/common.js",
+      "js/mui.min.js",
+      "images/logo.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/identify.style.css",
+      "images/password.jpg"
+    ],
+    "refer": [
+      "register.html",
+      "findPswStep1.html"
+    ]
+  },
+  "subpages/menuList.html": {
+    "resources": [
+      "css/sub.style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/logo.jpg",
+      "js/common.js"
+    ],
+    "refer": [
+      "register.html",
+      "subpages/selectListNav.html",
+      "subpages/selectTCHNav.html"
+    ]
+  },
+  "subpages/selectListNav.html": {
+    "resources": [
+      "css/sub.style.css",
+      "js/common.js",
+      "subpages/selectTeacher.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "subpages/selectTeacher.html"
+    ]
+  },
+  "subpages/selectTCH.html": {
+    "resources": [
+      "images/TCHAvatar.jpg"
+    ],
+    "refer": []
+  },
+  "subpages/selectTCHNav.html": {
+    "resources": [
+      "subpages/selectTCH.html"
+    ],
+    "refer": [
+      "subpages/selectTCH.html"
+    ]
+  },
+  "homeTCH/selectTCHNav.html": {
+    "resources": [
+      "homeTCH/selectTCH.html",
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "homeTCH/selectTCH.html"
+    ]
+  },
+  "homeTCH/selectTCH.html": {
+    "resources": [
+      "images/TCHAvatar.jpg",
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/iconfont.css",
+      "images/avatar_demo4.jpg",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": [
+      "homeTCH/iTCHNav.html",
+      "homeTCH/iTCH.html"
+    ]
+  },
+  "homeTCH/menuList.html": {
+    "resources": [
+      "css/sub.style.css",
+      "images/logo.jpg",
+      "fonts/mui.ttf",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "homeTCH/selectTCHNav.html"
+    ]
+  },
+  "homeTCH/iTCH.html": {
+    "resources": [
+      "images/cover.jpg",
+      "images/avatar_demo.jpg",
+      "css/sub.style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/mien3.jpg",
+      "images/mien2.jpg",
+      "images/mien1.jpg",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/mien4.jpg",
+      "images/mien5.jpg",
+      "images/QRIcon.png",
+      "images/QRIconB.png",
+      "js/common.js",
+      "css/iconfont.css",
+      "images/QRC.png",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": [
+      "homeTCH/iAlbum.html",
+      "homeTCH/iReview.html",
+      "homeTCH/iLocation.html",
+      "homeTCH/iAuth.html",
+      "homeTCH/iService.html",
+      "homeTCH/iEXP.html",
+      "public/orderNav.html"
+    ]
+  },
+  "homeTCH/iTCHNav.html": {
+    "resources": [
+      "homeTCH/iTCH.html",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/app.css"
+    ],
+    "refer": [
+      "homeTCH/iTCH.html"
+    ]
+  },
+  "homeTCH/iAlbum.html": {
+    "resources": [
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js",
+      "images/mien3.jpg",
+      "css/sub.style.css",
+      "images/mien4.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "images/mien5.jpg",
+      "css/mui.min.css",
+      "images/mien2.jpg",
+      "images/mien1.jpg"
+    ],
+    "refer": []
+  },
+  "homeTCH/iReview.html": {
+    "resources": [
+      "images/avatar_demo3.jpg",
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "homeTCH/iLocation.html": {
+    "resources": [
+      "js/H5plus.js",
+      "css/sub.style.css",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "homeTCH/iAuth.html": {
+    "resources": [
+      "images/avatar_demo2.jpg",
+      "css/sub.style.css",
+      "js/mui.min.js",
+      "images/TCHAvatar.jpg",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": []
+  },
+  "my-nav.html": {
+    "resources": [
+      "my.html",
+      "css/main.style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "my.html"
+    ]
+  },
+  "message.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "schedule.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "Personal/myWallet.html": {
+    "resources": [
+      "css/personal.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": []
+  },
+  "Personal/orderList.html": {
+    "resources": [
+      "images/mien3.jpg",
+      "js/mui.zoom.js",
+      "css/personal.style.css",
+      "js/mui.previewimage.js",
+      "images/avatar_demo3.jpg",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "images/avatar_demo4.jpg",
+      "images/avatar_demo.jpg"
+    ],
+    "refer": [
+      "Personal/orderSheet.html",
+      "Personal/orderSheetNav.html"
+    ]
+  },
+  "Personal/orderSheet.html": {
+    "resources": [
+      "js/common.js",
+      "js/mui.min.js",
+      "images/mien3.jpg",
+      "css/personal.style.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": []
+  },
+  "Personal/orderSheetNav.html": {
+    "resources": [
+      "Personal/orderSheet.html",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/personal.style.css",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf"
+    ],
+    "refer": [
+      "Personal/orderSheet.html"
+    ]
+  },
+  "msgLobby.html": {
+    "resources": [
+      "images/logo.jpg",
+      "images/avatar_demo3.jpg",
+      "css/message.sub.css",
+      "css/iconfont.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "message/iChat.html",
+      "message/iChatNav.html"
+    ]
+  },
+  "message/iChat.html": {
+    "resources": [
+      "js/mui.imageViewer.js",
+      "css/app.css",
+      "css/mui.imageviewer.css",
+      "js/arttmpl.js",
+      "js/mui.min.js",
+      "images/logo.jpg",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "message/iChatNav.html": {
+    "resources": [
+      "message/iChat.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "message/iChat.html"
+    ]
+  },
+  "squareNav.html": {
+    "resources": [
+      "square.html",
+      "css/square.style.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/iconfont.css",
+      "js/common.js",
+      "fonts/iconfont.ttf",
+      "fonts/iconfont.woff"
+    ],
+    "refer": [
+      "square.html",
+      "square/addArticle.html",
+      "square/addArticleNav.html"
+    ]
+  },
+  "square/artList.html": {
+    "resources": [
+      "images/alipay.jpg",
+      "images/cbd.jpg",
+      "images/avatar-BG.jpg",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/mien2.jpg",
+      "images/mien1.jpg",
+      "images/avatar_demo.jpg",
+      "css/square.style.css"
+    ],
+    "refer": [
+      "square/article.html",
+      "square/articleNav.html"
+    ]
+  },
+  "square/artListNav.html": {
+    "resources": [
+      "square/artList.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "css/square.style.css",
+      "js/common.js"
+    ],
+    "refer": [
+      "square/artList.html",
+      "square/addArticle.html"
+    ]
+  },
+  "square/article.html": {
+    "resources": [
+      "images/logo.jpg",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/avatar_demo.jpg",
+      "css/square.style.css",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "js/mui.zoom.js",
+      "js/mui.previewimage.js"
+    ],
+    "refer": []
+  },
+  "square/articleNav.html": {
+    "resources": [
+      "square/article.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/square.style.css"
+    ],
+    "refer": [
+      "square/article.html"
+    ]
+  },
+  "square/addArticle.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/square.style.css",
+      "fonts/mui.ttf",
+      "js/mui.picker.js",
+      "js/mui.poppicker.js",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/mui.poppicker.css",
+      "css/mui.picker.css",
+      "images/mien4.jpg",
+      "images/mien5.jpg",
+      "images/cbd.jpg",
+      "images/mien1.jpg"
+    ],
+    "refer": []
+  },
+  "square/addArticleNav.html": {
+    "resources": [
+      "square/addArticle.html",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "fonts/iconfont.ttf",
+      "css/square.style.css",
+      "js/H5plus.js"
+    ],
+    "refer": [
+      "square/addArticle.html",
+      "square/offcanvas-drag-left-plus-menu.html",
+      "square/emoji.html"
+    ]
+  },
+  "square/emoji.html": {
+    "resources": [
+      "images/emojiDemo.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/square.style.css"
+    ],
+    "refer": []
+  },
+  "findPswStep1.html": {
+    "resources": [
+      "images/validate.jpg"
+    ],
+    "refer": []
+  },
+  "homeTCH/goDutchListNav.html": {
+    "resources": [
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "homeTCH/goDutchList.html"
+    ],
+    "refer": [
+      "homeTCH/goDutchList.html"
+    ]
+  },
+  "homeTCH/goDutchList.html": {
+    "resources": [
+      "images/TCHAvatar.jpg",
+      "css/iconfont.css",
+      "fonts/iconfont.ttf",
+      "css/sub.style.css",
+      "js/common.js",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "images/avatar_demo4.jpg"
+    ],
+    "refer": [
+      "public/goDutchNav.html"
+    ]
+  },
+  "public/shake.html": {
+    "resources": [
+      "images/shake/1.jpg",
+      "images/shakedown.png",
+      "images/shakeup.png",
+      "js/immersed.js",
+      "js/H5plus.js",
+      "images/shake/4.jpg",
+      "css/shake.style.css",
+      "css/mui.min.css",
+      "images/shake/2.jpg",
+      "images/shake/3.jpg",
+      "js/mui.min.js",
+      "js/common.js",
+      "css/public.style.css"
+    ],
+    "refer": [
+      "homeTCH/iTCH.html"
+    ]
+  },
+  "public/order.html": {
+    "resources": [
+      "css/public.style.css",
+      "images/avatar_demo3.jpg"
+    ]
+  },
+  "public/orderNav.html": {
+    "resources": [
+      "public/order.html",
+      "css/personal.style.css"
+    ],
+    "refer": [
+      "public/order.html"
+    ]
+  },
+  "public/goDutchNav.html": {
+    "resources": [
+      "css/personal.style.css",
+      "public/goDutch.html"
+    ],
+    "refer": [
+      "public/goDutch.html"
+    ]
+  },
+  "public/goDutch.html": {
+    "resources": [
+      "css/public.style.css",
+      "js/jquery-2.1.1.min.js",
+      "images/avatar_demo3.jpg",
+      "js/jquery.classyled.min.js",
+      "js/raphael.js"
+    ],
+    "refer": [
+      "homeTCH/iTCH.html"
+    ]
+  }
+}

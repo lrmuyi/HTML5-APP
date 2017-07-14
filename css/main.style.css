@@ -1,0 +1,393 @@
+*{
+	font-family: "微软雅黑";
+}
+body{
+	background-color: #EEE;
+}
+.mui-active{
+	color:inherit !important;
+	background:inherit !important;
+}
+.public-empty-row{
+	height:15px;
+}
+.public-icon{
+	font-size: 20px !important;
+	display: inline-block;
+	text-decoration: none;
+	line-height:25px !important;
+}
+.index-header{
+	position:fixed !important;
+	background-color: #09F;
+	overflow: hidden;
+}
+.index-nav-btn-left{
+	position:absolute !important;
+	color:white;
+}
+.index-nav-btn-left label{
+	font-size:0.65em;
+}
+.index-nav-btn-right{
+	position:absolute !important;
+	top:0px;
+	right:15px;
+	color:white;
+}
+.header-title{
+	top:0px;
+	color:white;
+	font-size:20px;
+}
+.index-slider{
+	height:40%;
+	position:relative;
+}
+.index-slider img{
+	min-height:100%;
+	max-height:100%;
+}
+.public-clear-margin{
+	margin-top:0px !important;
+}
+.public-dot-red{
+	margin-left:4px;
+	font-size:20px;
+	color:#F11;
+}
+.navi-bar{
+	background-color: #666;
+}
+.index-content{
+	padding-top:43px !important;
+	position:relative;
+	height:100%;
+}
+.index-content-bottom{
+	margin:0;
+	width:100%;
+	height:60%;
+}
+.index-content-ul{
+	height:100%;
+	padding-top:1px !important;
+	padding-right:0 !important;
+	padding-left:0 !important;
+	padding-bottom:8px !important;
+	
+}
+.index-btn{
+	position:relative;
+	padding:0px !important;
+	height:100%;
+}
+.index-btn-left{
+	display:table;
+	width:100%;
+	text-align: center;
+	position: relative;
+	height:50%;
+	margin-top:8px;
+	background:blue;
+}
+.index-btn-right{
+	margin-left:5px;
+	padding-left:5px !important;
+}
+.index-btn-right-cell{
+	display:table;
+	width:100%;
+	position:relative;
+	text-align:center;
+	margin-top:8px;
+	height:31.5%;
+}
+.btn-cover{
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:rgba(0,0,0,.08);
+	z-index: 10;
+	overflow:hidden;
+	display:none;
+}
+.btn-cover-circle{
+	position:absolute;
+	background:rgba(0,0,0,.1);
+}
+.index-btn-1{
+	background-color:#09F;
+}
+.index-btn-2{
+	background-color:#fd7778;
+}
+.index-btn-3{
+	background-color:#8fc320;
+}
+.index-btn-4{
+	background-color:#f27638;
+}
+.index-btn-5{
+	display:inline-table;
+	width:48.5%;
+	background-color:#a84097;
+}
+.index-btn-6{
+	display:inline-table;
+	width:48%;
+	background-color:#00c377;
+}
+.index-btn-icon{
+	display:table-cell;
+	position:relative;
+	margin:0 auto;
+	width:100%;
+	height:100%;
+	vertical-align: middle;
+	line-height:100%;
+	color:white;
+	font-size:60px !important;
+}
+.index-btn-icon-left{
+	line-height:80%;
+}
+.index-btn-text{
+	color:white;
+	display:block;
+	font-size:22px;
+}
+.index-btn-icon-right{
+	position: relative;
+	display:table-cell !important;
+	width:100%;
+	height:100%;
+	vertical-align: middle;
+	color:white;
+	font-size:70px !important;
+	padding:0 7px 10px 0 !important;
+	
+}
+.index-btn-icon-rs{
+	font-size:60px !important;
+}
+.index-btn-text-right{
+	padding:0 !important;
+	margin-top:3vh !important;
+	margin-left:10px;
+	font-size:22px !important;
+	color:white;
+	line-height:22px !important;
+}
+.index-btn-icon-small{
+	position:relative;
+	display:table-cell;
+	vertical-align: middle;
+	width:100%;
+	height:100%;
+	color:white;
+	font-size:40px !important;
+}
+.index-btn-text-small{
+	margin-top:8px;
+	margin-bottom:10px;
+	font-size:20px !important;
+}
+.index-btn-right-gap{
+	margin-left:1%;
+}
+@media (max-width: 340px){
+	.index-slider{
+	  height:40%;
+	}
+	.index-content-ul{
+	  padding-bottom:5px !important;
+	}
+	.index-btn-icon{
+	  font-size:40px !important;
+	}
+	.index-btn-left{
+	  margin-top:5px;
+	}
+	.index-btn-right{
+	  margin-left:5px;
+	  padding-left:5px !important;
+	}
+	.index-btn-right-cell{
+	  margin-top:5px;
+	}
+	.index-btn-icon-right{
+	  font-size:50px !important;
+	}
+	.index-btn-text-right{
+	  font-size:20px !important;
+	}
+	.index-btn-icon-rs{
+	  font-size:37px !important;
+	}
+	.index-btn-text{
+	  font-size:20px;
+	}
+	.index-btn-icon-small{
+	  font-size:25px !important;
+	}
+	.index-btn-text-small{
+	  font-size:18px !important;
+	  margin-top:5px;
+	}
+	.index-btn-right-gap{
+	  margin-left:0;
+	}
+}
+.my-nav{
+	background-color:white;
+}
+.my-nav-icon{
+	margin:0 2px !important;
+	font-size: 1.5em;
+}
+.my-nav-icon-badge{
+	top:5px !important;
+	left:90% !important;
+}
+.my-home-avatar{
+	margin-top:5px;
+}
+.my-home-avatar img{
+	display: block;
+	margin:0 auto;
+	width:80px;
+	border-radius: 50px;
+	border:4px solid #FFF;
+	border:1vw solid #AAA;
+}
+.my-home-profile{
+	position: relative;
+	overflow: hidden;
+	padding: 5% 15px;
+	-webkit-touch-callout: none;
+	background:url(../images/avatar-BG.jpg) top center no-repeat;
+	background-size: cover;
+}
+.my-home-profile:after{
+	background-color:#4AF;
+	
+}
+.profile-cover-header{
+	position:absolute;
+	top:5%;
+	width:100%;
+	color:white;
+}
+@media(max-width: 330px) {
+	.profile-cover-header{
+		top:7%;
+	
+	}
+}
+.profile-cover-topLeft{
+	float:left;
+	margin-left:15px;
+}
+.profile-cover-topLeft label{
+	margin-left:10px;
+	font-size:25px;
+}
+.profile-cover-topRight{
+	float:right;
+}
+.profile-cover-topRight label{
+	margin-right:25px;
+	font-size:20px;
+	color:white;
+}
+.my-home-pro-arrow{
+	margin-left:5px;
+	border:1px solid #AAA;
+	border-radius: 30px;
+	font-size:1.1em;
+	padding-top:1px;
+}
+.my-home-pro-text{
+	margin-top:6px;
+	margin-bottom: 5px;
+}
+.my-home-pro-pickname{
+	color:white;
+	text-align: center;
+	font-size:1em;
+}
+.my-home-pro-scores{
+	margin-top:2px;
+	color:white;
+	text-align:center;
+}
+.my-pro-btn-view{
+	box-sizing:border-box;
+	padding:7px 0px 8px 0px !important;
+}
+.my-pro-btn{
+	padding:0 !important;
+	height:50px;
+	overflow: hidden;
+}
+.my-pro-btn-line{
+	border-left:1px solid #DDD;
+}
+.my-home-btn-center{
+	overflow: hidden;
+	text-align: center;
+}
+.my-home-btn-img{
+	margin-right:22px;
+}
+
+@media (max-width: 360px){
+	.my-home-btn-img{
+		margin-right:15px;
+	}
+}
+@media (max-width: 340px){
+	.my-home-btn-img{
+		margin-right:10px;
+	}
+}
+.my-home-btn-img img{
+	margin-top:4px;
+	width:40px;
+}
+.my-home-btn-title{
+	display:inline-block;
+	height:65px;
+	vertical-align: middle;
+}
+.my-home-btn-num{
+	color:gray;
+	font-size:0.7em;
+}
+.my-list-cell{
+	margin-bottom:-15px !important;
+	padding-bottom:7px !important;
+	top:-2px;
+}
+.my-list-icon{
+	float:left;
+	margin-top:0px;
+}
+.my-list-text-small{
+	float:left;
+	margin:3px 12px 2px;
+}
+.my-list-title{
+	display: block;
+	margin-top:0px;
+	margin-bottom: 6px;
+	font-size:0.9em;
+}
+.my-list-desc{
+	float:right;
+	font-size:0.7em;
+	color:gray;
+	margin-right:30px;
+	margin-top:5px;
+}
